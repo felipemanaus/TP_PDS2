@@ -4,7 +4,6 @@
 #include <string>
 
 using namespace std;
-
 class jogador {
 private:
   string nome;
@@ -13,12 +12,10 @@ private:
   int quantidade_derrotas;
 
 public:
-  jogador(string nome , string apelido);
+  int jogada; //sera 1 ou 2
+  jogador(string, string, int);
   void aumenta_vitorias();
   void aumenta_derrotas();
   string get_apelido() const;
 };
-
-
-
 #endif

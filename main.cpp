@@ -1,5 +1,9 @@
+#include "include/jogador.hpp"
+#include "include/jogo.hpp"
+#include "include/Lig4.hpp"
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 int main(){
@@ -38,7 +42,7 @@ int main(){
         cout << endl;
         cout << "      "; 
         for(int j = 0 ; j < colunas ; j++){
-            cout << "__" << "  ";
+            cout << "" << "  ";
         }
         cout << endl;
 
@@ -68,7 +72,7 @@ int main(){
             }
             matriz_de_jogo[linha_aux][coluna_desejada] = i;
 
-            
+          
 
 
         }

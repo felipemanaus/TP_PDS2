@@ -1,24 +1,24 @@
 #ifndef LIG4_HPP
 #define LIG4_HPP
 
-#include "jogo.hpp"
+#include "./jogo.hpp"
+#include "./jogador.hpp"
+#include <vector>
+#include <iostream>
 
 
-class lig4 : public jogo{
-public:
-    lig4();
-    ~lig4() override;
+using namespace std;
 
-     void realizar_jogada(int linha, int coluna, int jogador) override;
-     bool jogada_valida(int linha, int coluna) const override;
-     void imprimir_tabuleiro()  const override;
-     bool verificar_vitoria(int jogador) const override;
-
+class Lig4 : public jogo{
 private:
-    bool vitoria_horizontal (int jogador) const;
-    bool vitoria_vertical (int jogador) const;
-    bool vitoria_diagonal (int jogador) const;
-
+    vector<jogador> jogadores; 
+    
+public:
+    Lig4(jogador, jogador );
+    ~Lig4() override; 
+    bool jogada_valida(int);
+    void realizar_jogada();
+    //nao precisa da funcao imprime_tabuleiro
 };
 
 #endif
