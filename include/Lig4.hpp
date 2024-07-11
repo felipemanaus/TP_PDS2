@@ -13,7 +13,6 @@ class Lig4 : public jogo{
 public:
     vector<jogador> jogadores; 
     Lig4(jogador, jogador);
-    ~Lig4() override; 
     bool jogada_valida(int);
     void realizar_jogada();
     //nao precisa da funcao imprime_tabuleiro

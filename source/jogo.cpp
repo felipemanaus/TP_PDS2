@@ -1,4 +1,4 @@
-#include "jogo.hpp"
+#include "../include/jogo.hpp"
 #include <iostream>
 #include <vector>
 

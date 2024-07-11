@@ -1,4 +1,4 @@
-#include "jogador.hpp"
+#include "../include/jogador.hpp"
 #include <string>
 
 jogador::jogador (string nome , string apelido, int jogada){
