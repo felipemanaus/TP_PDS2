@@ -1,0 +1,20 @@
+comando de compilacao, execucao e limpeza:
+    mingw32-make 
+    ./main.exe
+    mingw32-make clean
+
+comandos para jogar mudancas em branch_especifica:
+    git add .
+    git commit -m "mensagem"
+    git push origin branch_especifica
+
+comandos para saber em que branch esta e para trocar para branch_especifica:
+    git branch
+    git checkout branch_especifica
+
+comando para puxar mudancas de branch_especifica:
+    git pull origin branch_especifica
+
+comando para excluir branch_especifica:
+    git branch -d branch_especifica (exclui apenas no seu pc)
+    git push origin --delete branch_especifica (exclui no github)
