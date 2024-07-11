@@ -46,6 +46,6 @@ bool jogo::verificar_tabuleiro_cheio(){
             }
         }
     }
-    if(contador_de_posicoes_ocupadas == colunas) return true;
+    if(contador_de_posicoes_ocupadas == colunas*linhas) return true;
     else return false;
 }
