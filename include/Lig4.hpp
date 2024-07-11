@@ -9,12 +9,10 @@
 
 using namespace std;
 
-class Lig4 : public jogo{
-private:
-    vector<jogador> jogadores; 
-    
+class Lig4 : public jogo{    
 public:
-    Lig4(jogador, jogador );
+    vector<jogador> jogadores; 
+    Lig4(jogador, jogador);
     ~Lig4() override; 
     bool jogada_valida(int);
     void realizar_jogada();
