@@ -7,8 +7,8 @@
 using namespace std;
 
 int main(){
-    jogador p1("felipe","felipe",1);
-    jogador p2("borges","borges",2);
+    jogador p1("felipe","felipe", 1);
+    jogador p2("borges","borges", 2);
 
     Lig4 teste (p1, p2);
 
@@ -17,9 +17,10 @@ int main(){
         if(tabuleiro_cheio){
             cout << "O jogo acabou" << endl;
             break;
-        } 
+        }
         teste.imprimir_tabuleiro();
         teste.realizar_jogada();
     }
+    
     return 0;
 }
