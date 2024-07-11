@@ -21,5 +21,6 @@ int main(){
         teste.imprimir_tabuleiro();
         teste.realizar_jogada();
     }
+    
     return 0;
 }
