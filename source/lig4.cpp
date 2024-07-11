@@ -19,7 +19,7 @@ bool Lig4::jogada_valida(int coluna) {
 void Lig4::realizar_jogada() {
     for(jogador aux : jogadores){
         int i = aux.jogada;
-        int coluna_desejada, linha_aux = 5;
+        int coluna_desejada, linha_aux = 7;
         cout << "digite a coluna de sua jogada jogador " << i << endl;
         cin >> coluna_desejada;
         if (jogada_valida(coluna_desejada)) {
