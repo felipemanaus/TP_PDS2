@@ -14,7 +14,7 @@ public:
     vector<jogador> jogadores; 
     Lig4(jogador, jogador);
     bool jogada_valida(int);
-    void realizar_jogada();
+    void jogar();
     //nao precisa da funcao imprime_tabuleiro
 
     bool checador_vertical (int,int);
