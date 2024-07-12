@@ -42,7 +42,7 @@ void Lig4::jogar(){
             this->tabuleiro[linha_aux][coluna_desejada] = i;
             bool ganhou = this->verificar_vitoria(linha_aux, coluna_desejada);
             if (ganhou){
-                system("cls");
+                system("cls");    
                 this->imprimir_tabuleiro();
                 cout << "jogador " << i << " venceu!!!!" << endl;
                 venceu = true;
