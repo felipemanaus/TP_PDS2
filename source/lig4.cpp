@@ -5,7 +5,6 @@
 using namespace std;
 
 
-//tabuleiro 6x7
 Lig4::Lig4(jogador p1, jogador p2) : jogo() {
     jogadores = {p1, p2};
 }
