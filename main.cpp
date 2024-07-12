@@ -19,7 +19,8 @@ int main(){
             cout << "O jogo acabou" << endl;
             break;
         }
-        teste.realizar_jogada();
+        //bool ganhou = teste.verificar_vitoria
+        //teste.realizar_jogada();
     }
     
     return 0;
