@@ -12,15 +12,8 @@ int main(){
 
     Lig4 teste (p1, p2);
 
-    while(1){
-        teste.imprimir_tabuleiro();
-        bool tabuleiro_cheio = teste.verificar_tabuleiro_cheio();
-        if(tabuleiro_cheio){
-            cout << "O jogo acabou" << endl;
-            break;
-        }
-        teste.realizar_jogada();
-    }
+    teste.jogar();
+    
     
     return 0;
 }
