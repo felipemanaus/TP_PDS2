@@ -21,13 +21,6 @@ public:
 
     bool verificar_horizontal(int,int);
 
-    bool checar_diagonal_descendo_direita(int,int);
-    bool verificar_diagonal_subindo_esquerda(int,int);
-
-    bool checar_diagonal_descendo_esquerda(int,int);
-    bool verificar_diagonal_subindo_direita(int,int);
-
-
     bool verificar_vitoria(int, int);
     
 };
