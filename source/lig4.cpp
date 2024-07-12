@@ -18,6 +18,7 @@ bool Lig4::jogada_valida(int coluna) {
 
 void Lig4::jogar(){
     while(1){
+        system("cls");
         this->imprimir_tabuleiro();
         bool tabuleiro_cheio = this->verificar_tabuleiro_cheio();
         if(tabuleiro_cheio){
