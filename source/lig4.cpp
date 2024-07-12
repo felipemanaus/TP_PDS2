@@ -22,18 +22,15 @@ void Lig4::realizar_jogada() {
         int coluna_desejada, linha_aux = 7;
         cout << "digite a coluna de sua jogada jogador " << i << endl;
         cin >> coluna_desejada;
-        if (jogada_valida(coluna_desejada)) {
-            while (this->tabuleiro[linha_aux][coluna_desejada] != 0){
-                linha_aux--;
-            }
+        while(!jogada_valida(coluna_desejada)){
+            cout << "coluna ja ocupada, escolha outra jogador " << i << endl;
+            cin >> coluna_desejada;
+        }
+        
+        while (this->tabuleiro[linha_aux][coluna_desejada] != 0){
+            linha_aux--;
+        }
         this->tabuleiro[linha_aux][coluna_desejada] = i;
-        }
-        else{
-            while(this->tabuleiro[0][coluna_desejada] != 0){
-                cout << "coluna ja ocupada, escolha outra jogador " << i << endl;
-                cin >> coluna_desejada;
-            }
-        }
     }       
 }
 
