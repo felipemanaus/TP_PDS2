@@ -25,8 +25,7 @@ void Lig4::jogar(){
             cout << "O jogo acabou" << endl;
             break;
         }
-        bool venceu = false;
-        
+        bool venceu;
         for(jogador aux : jogadores){
             int i = aux.jogada;
             int coluna_desejada, linha_aux = 7;
@@ -43,6 +42,7 @@ void Lig4::jogar(){
             this->tabuleiro[linha_aux][coluna_desejada] = i;
             bool ganhou = this->verificar_vitoria(linha_aux, coluna_desejada);
             if (ganhou){
+                this->imprimir_tabuleiro();
                 cout << "jogador " << i << " venceu!!!!" << endl;
                 venceu = true;
                 break;
@@ -52,50 +52,57 @@ void Lig4::jogar(){
     }
 }
 
-bool Lig4::checador_vertical(int linha_aux, int coluna_aux){
-    int jogada = this->tabuleiro[linha_aux][coluna_aux];
-    int contagem = 1;
-
-    for (int i = linha_aux; i < linhas - 1 || contagem < 4 ; i++) {
-        if (this->tabuleiro[i][coluna_aux] == jogada) {
-            contagem++;
-        } else {
-            break;
-        }
-    }
-    return contagem == 4;
-}
-
 bool Lig4::verificar_vertical(int linha_aux, int coluna_aux){
     int jogada = this->tabuleiro[linha_aux][coluna_aux];
-    for(int i = 0 ; i < colunas-3 ; i++){
-        if(this->tabuleiro[i][coluna_aux] == jogada){
-            if(checador_horizontal(i, coluna_aux)) return true;
+    int contador = 1;
+    int i_cima = linha_aux;
+    int i_baixo = linha_aux;
+
+    
+    while(1){
+        if(contador==4) return true;
+        if(i_cima > 0 && this->tabuleiro[i_cima - 1][coluna_aux] == jogada){
+            contador++;
+            i_cima--;
         }
+        else break;
+    }
+            
+    while(1){
+        if(contador==4) return true;
+        if(i_baixo < 7 && this->tabuleiro[i_baixo + 1][coluna_aux] == jogada){
+            contador++;
+            i_baixo++;
+        }
+        else break;
     }
     return false;
 }
 
-bool Lig4::checador_horizontal(int linha_aux ,int coluna_aux){
-    int jogada = this->tabuleiro[linha_aux][coluna_aux];
-    int contagem = 1;
-
-    for (int j = coluna_aux; j < colunas - 1 || contagem < 4 ; j++) {
-        if (this->tabuleiro[linha_aux][j + 1] == jogada) {
-            contagem++;
-        } else {
-            break;
-        }
-    }
-    return contagem == 4;
-}
 
 bool Lig4::verificar_horizontal(int linha_aux, int coluna_aux ){
     int jogada = this->tabuleiro[linha_aux][coluna_aux];
-    for(int i = 0 ; i < colunas-3 ; i++){
-        if(this->tabuleiro[linha_aux][i] == jogada){
-            if(checador_horizontal(linha_aux, i)) return true;
+    int contador = 1;
+    int j_esquerda = coluna_aux;
+    int j_direita = coluna_aux;
+
+    
+    while(1){
+        if(contador==4) return true;
+        if(j_esquerda > 0 && this->tabuleiro[linha_aux][j_esquerda - 1] == jogada){
+            contador++;
+            j_esquerda--;
         }
+        else break;
+    }
+            
+    while(1){
+        if(contador==4) return true;
+        if(j_direita < 7 && this->tabuleiro[linha_aux][j_direita + 1] == jogada){
+            contador++;
+            j_direita++;
+        }
+        else break;
     }
     return false;
 }

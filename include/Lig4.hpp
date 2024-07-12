@@ -17,10 +17,8 @@ public:
     void jogar();
     //nao precisa da funcao imprime_tabuleiro
 
-    bool checador_vertical (int,int);
     bool verificar_vertical(int,int);
 
-    bool checador_horizontal(int,int);
     bool verificar_horizontal(int,int);
 
     bool checar_diagonal_descendo_direita(int,int);
