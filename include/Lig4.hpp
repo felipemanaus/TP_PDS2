@@ -21,6 +21,8 @@ public:
 
     bool verificar_horizontal(int,int);
 
+    bool verificar_diagonal(int, int);
+
     bool verificar_vitoria(int, int);
     
 };

@@ -106,9 +106,45 @@ bool Lig4::verificar_horizontal(int linha_aux, int coluna_aux ){
     return false;
 }
 
+bool Lig4::verificar_diagonal(int linha_aux, int coluna_aux){
+    int posicao =  tabuleiro[linha_aux][coluna_aux];
+    int contador = 0;
+    for (int i=-3; i<4; i++){
+        int x = linha_aux + i;
+        int y = coluna_aux + i;
+        if (x >= 0 && x < linhas && y >= 0 && y < colunas && tabuleiro[x][y] == posicao){
+            contador++;
+            if (contador == 4)
+                return true;
+        }
+        else {
+            contador = 0;
+        }
+    }
+
+    contador = 0;
+    for (int j=-3; j<4; j++){
+        int x = linha_aux + j;
+        int y = coluna_aux - j;
+        if (x >= 0 && x < linhas && y >= 0 && y < colunas && tabuleiro[x][y] == posicao){
+            contador++;
+            if (contador == 4)
+                return true;
+        }
+        else {
+            contador = 0;
+        }
+    }
+    return false;
+}
+
+
 
 bool Lig4::verificar_vitoria(int linha_aux,int coluna_aux){
-    if(verificar_vertical(linha_aux,coluna_aux)) return true;
-    if(verificar_horizontal(linha_aux,coluna_aux)) return true;
-    return false;
+    if(verificar_vertical(linha_aux,coluna_aux) || verificar_horizontal(linha_aux, coluna_aux) || verificar_diagonal(linha_aux, coluna_aux)){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
