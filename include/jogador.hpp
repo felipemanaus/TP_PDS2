@@ -4,18 +4,21 @@
 #include <string>
 
 using namespace std;
-class jogador {
-private:
-  string nome;
-  string apelido;
-  int quantidade_vitorias;
-  int quantidade_derrotas;
 
-public:
-  int jogada; //sera 1 ou 2
-  jogador(string, string, int);
-  void aumenta_vitorias();
-  void aumenta_derrotas();
-  string get_apelido() const;
+class jogador {
+    public:
+        string nome;
+        string apelido;
+        int vitorias_reversi;
+        int derrotas_reversi;
+        int vitorias_lig4;
+        int derrotas_lig4;
+
+        jogador(string nome, string apelido);
+        void ganhador_reversi();
+        void perdedor_reversi();
+        void ganhador_lig4();
+        void perdedor_lig4();
 };
+
 #endif

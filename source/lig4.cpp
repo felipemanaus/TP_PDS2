@@ -26,8 +26,10 @@ void Lig4::jogar(){
             break;
         }
         bool venceu;
+        bool primeiro_jogador = true;
         for(jogador aux : jogadores){
-            int i = aux.jogada;
+            int i = primeiro_jogador ? 1 : 2;
+            primeiro_jogador = !primeiro_jogador;
             int coluna_desejada, linha_aux = 7;
             cout << "digite a coluna de sua jogada jogador " << i << endl;
             cin >> coluna_desejada;

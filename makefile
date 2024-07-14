@@ -1,37 +1,38 @@
-OBJDIR = obj
-SRCDIR = source
-INCDIR = include
-
-
-# Detecta o sistema operacional
 ifeq ($(OS), Windows_NT)
     RM = del
-	BAR = "\"
+    BAR = "\"
     EXE = main.exe
 else
     RM = rm -f
-	BAR = /
+    BAR = /
     EXE = main
 endif
 
-all: main
+all: obj main
 
-OBJFILES = $(OBJDIR)/jogador.o $(OBJDIR)/jogo.o $(OBJDIR)/Lig4.o $(OBJDIR)/main.o
+obj:
+	mkdir obj
 
-main: $(OBJFILES)
-	g++ -Wall -std=c++11 -o main $(OBJFILES)
+main: obj/cadastro.o obj/jogador.o obj/jogo.o obj/lig4.o obj/reversi.o obj/main.o
+	g++ -Wall -std=c++11 -o main obj/cadastro.o obj/jogador.o obj/jogo.o obj/lig4.o obj/reversi.o obj/main.o
 
-$(OBJDIR)/jogador.o: $(SRCDIR)/jogador.cpp $(INCDIR)/jogador.hpp
-	g++ -Wall -std=c++11 -c $(SRCDIR)/jogador.cpp -o $(OBJDIR)/jogador.o
+obj/cadastro.o: source/cadastro.cpp include/cadastro.hpp
+	g++ -Wall -std=c++11 -c source/cadastro.cpp -o obj/cadastro.o
 
-$(OBJDIR)/jogo.o: $(SRCDIR)/jogo.cpp $(INCDIR)/jogo.hpp
-	g++ -Wall -std=c++11 -c $(SRCDIR)/jogo.cpp -o $(OBJDIR)/jogo.o
+obj/jogador.o: source/jogador.cpp include/jogador.hpp
+	g++ -Wall -std=c++11 -c source/jogador.cpp -o obj/jogador.o
 
-$(OBJDIR)/Lig4.o: $(SRCDIR)/Lig4.cpp $(INCDIR)/Lig4.hpp
-	g++ -Wall -std=c++11 -c $(SRCDIR)/Lig4.cpp -o $(OBJDIR)/Lig4.o
+obj/jogo.o: source/jogo.cpp include/jogo.hpp
+	g++ -Wall -std=c++11 -c source/jogo.cpp -o obj/jogo.o
 
-$(OBJDIR)/main.o: main.cpp $(INCDIR)/jogador.hpp $(INCDIR)/jogo.hpp $(INCDIR)/Lig4.hpp
-	g++ -Wall -std=c++11 -c main.cpp -o $(OBJDIR)/main.o
+obj/lig4.o: source/lig4.cpp include/lig4.hpp
+	g++ -Wall -std=c++11 -c source/lig4.cpp -o obj/lig4.o
+
+obj/reversi.o: source/reversi.cpp include/reversi.hpp
+	g++ -Wall -std=c++11 -c source/reversi.cpp -o obj/reversi.o
+
+obj/main.o: main.cpp include/cadastro.hpp include/jogador.hpp include/jogo.hpp include/lig4.hpp include/reversi.hpp
+	g++ -Wall -std=c++11 -c main.cpp -o obj/main.o
 
 clean:
-	$(RM) $(OBJDIR)$(BAR)*.o $(EXE)
+	$(RM) obj$(BAR)*.o $(EXE)

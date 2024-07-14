@@ -1,22 +1,26 @@
 #include "../include/jogador.hpp"
-#include <string>
 
-jogador::jogador (string nome , string apelido, int jogada){
+jogador::jogador(string nome, string apelido) {
     this->nome = nome;
     this->apelido = apelido;
-    this->quantidade_vitorias = 0;
-    this->quantidade_derrotas = 0;
-    this->jogada = jogada; //sera 1 ou 2
+    this->vitorias_reversi = 0;
+    this->derrotas_reversi = 0;
+    this->vitorias_lig4 = 0;
+    this->derrotas_lig4 = 0;
 }
 
-void jogador::aumenta_vitorias (){
-    this->quantidade_vitorias++;
+void jogador::ganhador_reversi() {
+    vitorias_reversi++;
 }
 
-void jogador::aumenta_derrotas (){
-    this->quantidade_derrotas++;
+void jogador::perdedor_reversi() {
+    derrotas_reversi++;
 }
 
-string jogador::get_apelido() const {
-    return this->apelido;
+void jogador::ganhador_lig4() {
+    vitorias_lig4++;
+}
+
+void jogador::perdedor_lig4() {
+    derrotas_lig4++;
 }

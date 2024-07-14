@@ -1,6 +1,4 @@
 #include "../include/jogo.hpp"
-#include <iostream>
-#include <vector>
 
 using namespace std;
 
