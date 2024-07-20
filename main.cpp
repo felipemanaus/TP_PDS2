@@ -18,7 +18,6 @@ int main() {
                 cout << "Digite o apelido e o nome:" << endl;
                 cin >> apelido >> nome;
                 cadastro.cadastrar_jogador(apelido, nome);
-                break;
             }
 
             case 'R': {
@@ -26,12 +25,10 @@ int main() {
                 cout << "Digite o apelido:" << endl;
                 cin >> apelido;
                 cadastro.remover_jogador(apelido);
-                break;
             }
 
             case 'L': {
                 cadastro.listar_jogadores();
-                break;
             }
 
             case 'E': {
