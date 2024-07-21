@@ -431,7 +431,7 @@ void contagem_pontos (const vector<vector<char>>& tabuleiro) {
 
 
 int main() {
-    int linha, coluna, i, j, a, b;
+    int linha, coluna, i, j;
     char cor_inicial;
     vector<vector<char>> tabuleiro;
     vector<int> jogadas_possiveis_linha;
@@ -496,11 +496,11 @@ int main() {
                 if (tabuleiro[i][j] == ' ')
                     break;
             }
-            if (j != 8)
+            if (j < 8)
                 break;
         }
         if (i == 8 && j == 8)
-            break;
+            return 0;
 
 
         jogadas_possiveis_linha.clear();
@@ -532,8 +532,14 @@ int main() {
                     }
                 }
             }
+            if (jogadas_possiveis_linha.empty() && jogadas_possiveis_coluna.empty()) {
+                cout << endl << "PASS" << endl;
+                return 0;
+            }
+            else {
             cout << endl << endl;
             continue;
+            }
         }
 
 
@@ -565,16 +571,16 @@ int main() {
 
 
             //confere se o tabuleiro está cheio
-            for (a = 0; a < 8; ++a){
-                for (b = 0; b < 8; ++b){
-                    if (tabuleiro[a][b] == ' ')
+            for (i = 0; i < 8; ++i){
+                for (j = 0; j < 8; ++j){
+                    if (tabuleiro[i][j] == ' ')
                         break;
                 }
-                if (b != 8)
+                if (j < 8)
                     break;
             }
-            if (a == 8 && b == 8)
-                break;
+            if (i == 8 && j == 8)
+                return 0;
 
 
             jogadas_possiveis_linha.clear();
@@ -606,18 +612,20 @@ int main() {
                         }
                     }
                 }
+                if (jogadas_possiveis_linha.empty() && jogadas_possiveis_coluna.empty()) {
+                    cout << endl << "PASS" << endl;
+                    return 0;
+                }
+                else {
                 cout << endl << endl;
                 continue;
+                }
             }
 
             else
                 break;
             
         }
-        
-        
-        if (a == 8 && b == 8)
-            break;
         
     }
 
