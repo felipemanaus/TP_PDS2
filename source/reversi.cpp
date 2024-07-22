@@ -407,6 +407,25 @@ char seleciona_cor_aleatoria () {
 
 
 
+void jogadas_possiveis (const vector<vector<char>>& tabuleiro, vector<int>& jogadas_possiveis_linha, vector<int>& jogadas_possiveis_coluna, char cor_jogando) {
+    
+    jogadas_possiveis_linha.clear();
+    jogadas_possiveis_coluna.clear();
+
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j){
+            if (e_valido(tabuleiro, i, j, cor_jogando)){
+                jogadas_possiveis_linha.push_back(i);
+                jogadas_possiveis_coluna.push_back(j);
+                cout << "(" << i << ", " << j << ")" << endl;
+            }
+        }
+    }
+    
+}
+
+
+
 
 void contagem_pontos (const vector<vector<char>>& tabuleiro) {
     int cont_b = 0;
@@ -425,6 +444,23 @@ void contagem_pontos (const vector<vector<char>>& tabuleiro) {
 }
 
 
+
+//confere se o tabuleiro está cheio
+bool tabuleiro_esta_cheio (const vector<vector<char>>& tabuleiro) {
+    int i, j;
+    for (i = 0; i < 8; ++i){
+        for (j = 0; j < 8; ++j){
+            if (tabuleiro[i][j] == ' ')
+                break;
+        }
+        if (j < 8)
+            break;
+    }
+    if (i == 8 && j == 8)
+        return true;
+    else
+        return false;
+}
 
 
 
@@ -490,58 +526,28 @@ int main() {
         }
         
 
-        //confere se o tabuleiro está cheio
-        for (i = 0; i < 8; ++i){
-            for (j = 0; j < 8; ++j){
-                if (tabuleiro[i][j] == ' ')
-                    break;
-            }
-            if (j < 8)
-                break;
-        }
-        if (i == 8 && j == 8)
+        if (tabuleiro_esta_cheio (tabuleiro))
             return 0;
 
-
-        jogadas_possiveis_linha.clear();
-        jogadas_possiveis_coluna.clear();
-
+        
         cout << endl << "Jogadas possíveis para " << encontrar_complemento_da_cor(cor_inicial) << ": " << endl;
 
-        for (i = 0; i < 8; ++i){
-            for (j = 0; j < 8; ++j){
-                if (e_valido(tabuleiro, i, j, encontrar_complemento_da_cor(cor_inicial))){
-                    jogadas_possiveis_linha.push_back(i);
-                    jogadas_possiveis_coluna.push_back(j);
-                    cout << "(" << i << ", " << j << ")" << endl;
-                }
-            }
-        }
+        jogadas_possiveis (tabuleiro, jogadas_possiveis_linha, jogadas_possiveis_coluna, encontrar_complemento_da_cor(cor_inicial));
 
-        cout << endl << endl;
+        cout << endl;
 
         if (jogadas_possiveis_linha.empty() && jogadas_possiveis_coluna.empty()) {
             cout << "PASS" << endl;
             cout << endl << "Jogadas possíveis para " << cor_inicial << ": " << endl;
-            for (i = 0; i < 8; ++i){
-                for (j = 0; j < 8; ++j){
-                    if (e_valido(tabuleiro, i, j, cor_inicial)){
-                        jogadas_possiveis_linha.push_back(i);
-                        jogadas_possiveis_coluna.push_back(j);
-                        cout << "(" << i << ", " << j << ")" << endl;
-                    }
-                }
-            }
+            jogadas_possiveis (tabuleiro, jogadas_possiveis_linha, jogadas_possiveis_coluna, cor_inicial);
+            cout << endl;
             if (jogadas_possiveis_linha.empty() && jogadas_possiveis_coluna.empty()) {
-                cout << endl << "PASS" << endl;
+                cout << "PASS";
                 return 0;
             }
-            else {
-            cout << endl << endl;
-            continue;
-            }
+            else
+                continue;
         }
-
 
         while (cin >> linha >> coluna) {
 
@@ -570,56 +576,27 @@ int main() {
             }
 
 
-            //confere se o tabuleiro está cheio
-            for (i = 0; i < 8; ++i){
-                for (j = 0; j < 8; ++j){
-                    if (tabuleiro[i][j] == ' ')
-                        break;
-                }
-                if (j < 8)
-                    break;
-            }
-            if (i == 8 && j == 8)
+            if (tabuleiro_esta_cheio (tabuleiro))
                 return 0;
 
 
-            jogadas_possiveis_linha.clear();
-            jogadas_possiveis_coluna.clear();
-
             cout << endl << "Jogadas possíveis para " << cor_inicial << ": " << endl;
 
-            for (i = 0; i < 8; ++i){
-                for (j = 0; j < 8; ++j){
-                    if (e_valido(tabuleiro, i, j, cor_inicial)){
-                        jogadas_possiveis_linha.push_back(i);
-                        jogadas_possiveis_coluna.push_back(j);
-                        cout << "(" << i << ", " << j << ")" << endl;
-                    }
-                }
-            }
+            jogadas_possiveis (tabuleiro, jogadas_possiveis_linha, jogadas_possiveis_coluna, cor_inicial);
 
-            cout << endl << endl;
+            cout << endl;
 
             if (jogadas_possiveis_linha.empty() && jogadas_possiveis_coluna.empty()) {
                 cout << "PASS" << endl;
                 cout << endl << "Jogadas possíveis para " << encontrar_complemento_da_cor(cor_inicial) << ": " << endl;
-                for (i = 0; i < 8; ++i){
-                    for (j = 0; j < 8; ++j){
-                        if (e_valido(tabuleiro, i, j, encontrar_complemento_da_cor(cor_inicial))){
-                            jogadas_possiveis_linha.push_back(i);
-                            jogadas_possiveis_coluna.push_back(j);
-                            cout << "(" << i << ", " << j << ")" << endl;
-                        }
-                    }
-                }
+                jogadas_possiveis (tabuleiro, jogadas_possiveis_linha, jogadas_possiveis_coluna, encontrar_complemento_da_cor(cor_inicial));
+                cout << endl;
                 if (jogadas_possiveis_linha.empty() && jogadas_possiveis_coluna.empty()) {
-                    cout << endl << "PASS" << endl;
+                    cout << "PASS";
                     return 0;
                 }
-                else {
-                cout << endl << endl;
-                continue;
-                }
+                else
+                    continue;
             }
 
             else
