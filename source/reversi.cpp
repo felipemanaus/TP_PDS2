@@ -1,3 +1,5 @@
+#include "../include/Reversi.hpp"
+#include "../include/jogo.hpp"
 #include <iostream>
 #include <vector>
 #include <random>
@@ -8,7 +10,55 @@ using namespace std;
 
 
 
-void imprime_tabuleiro(const vector<vector<char>>& tabuleiro, int linhas, int colunas) {
+Reversi::Reversi() : jogo() {
+    tabuleiro.resize(linhas);
+    for (int i=0; i<linhas; i++){
+        tabuleiro[i].resize(colunas, ' ');
+    }
+    tabuleiro[3][3] = seleciona_cor_aleatoria();
+    tabuleiro[4][4] = tabuleiro[3][3];
+    tabuleiro[3][4] = encontrar_complemento_da_cor(tabuleiro[3][3]);
+    tabuleiro[4][3] = tabuleiro[3][4];
+    cout << "B: BLACK" << endl << "W: WHITE" << endl;
+    imprimir_tabuleiro();
+    contagem_pontos();
+    cor_inicial = seleciona_cor_aleatoria();
+    cout << endl << "A cor " << cor_inicial << " começa jogando" << endl;
+    cout << endl << "Jogadas possíveis para " << cor_inicial << ": " << endl;
+    for (int i = 0; i < 8; ++i){
+        for (int j = 0; j < 8; ++j){
+            if (e_valido(i, j, cor_inicial)){
+                jogadas_possiveis_linha.push_back(i);
+                jogadas_possiveis_coluna.push_back(j);
+                cout << "(" << i << ", " << j << ")" << endl;
+            }
+        }
+    }
+    cout << endl << endl;
+}
+
+
+vector<vector<char>> Reversi::get_tabuleiro() {
+    return tabuleiro;
+}
+
+
+char Reversi::get_cor_inicial() {
+    return cor_inicial;
+}
+
+
+vector<int> Reversi::get_jogadas_possiveis_linha() {
+    return jogadas_possiveis_linha;
+}
+
+
+vector<int> Reversi::get_jogadas_possiveis_coluna() {
+    return jogadas_possiveis_coluna;
+}
+
+
+void Reversi::imprimir_tabuleiro() {
     cout << endl << endl;
     
   //imprime indice das colunas
@@ -42,7 +92,27 @@ void imprime_tabuleiro(const vector<vector<char>>& tabuleiro, int linhas, int co
 
 
 
-char encontrar_complemento_da_cor(char cor_jogando){
+//confere se o tabuleiro está cheio
+bool Reversi::verificar_tabuleiro_cheio () {
+    int i, j;
+    for (i = 0; i < 8; ++i){
+        for (j = 0; j < 8; ++j){
+            if (tabuleiro[i][j] == ' ')
+                break;
+        }
+        if (j < 8)
+            break;
+    }
+    if (i == 8 && j == 8)
+        return true;
+    else
+        return false;
+}
+
+
+
+
+char Reversi::encontrar_complemento_da_cor(char cor_jogando){
     if ('B' == cor_jogando)
         return 'W';
     else
@@ -51,8 +121,43 @@ char encontrar_complemento_da_cor(char cor_jogando){
 
 
 
+//escolhe uma cor de forma aleatória para começar o jogo
+char Reversi::seleciona_cor_aleatoria () {
 
-bool confere_vertical(const vector<vector<char>>& tabuleiro, int i, int j, char cor_jogando) {
+    vector<char> cores = {'B', 'W'};
+
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> distrib(0, cores.size() - 1);
+
+    int indice_aleatorio = distrib(gen);
+
+    
+    return cores[indice_aleatorio];
+    
+}
+
+
+
+void Reversi::contagem_pontos () {
+    int cont_b = 0;
+    int cont_w = 0;
+
+    for (int i = 0; i <= 7; ++i)
+        for (int j = 0; j <= 7; ++j) {
+            if (tabuleiro[i][j] == 'B')
+                ++cont_b;
+            else if (tabuleiro[i][j] == 'W')
+                ++cont_w;
+        }
+
+    cout << endl << "B: " << cont_b << " pontos" << endl << "W: " << cont_w << " pontos" << endl;
+
+}
+
+
+
+bool Reversi::confere_vertical(int i, int j, char cor_jogando) {
 
     if (tabuleiro[i][j] == ' ') {
 
@@ -87,12 +192,10 @@ bool confere_vertical(const vector<vector<char>>& tabuleiro, int i, int j, char 
     return false;
 
 }
-    
-    
 
 
 
-bool confere_horizontal(const vector<vector<char>>& tabuleiro, int i, int j, char cor_jogando) {
+bool Reversi::confere_horizontal(int i, int j, char cor_jogando) {
 
     if (tabuleiro[i][j] == ' ') {
 
@@ -127,11 +230,10 @@ bool confere_horizontal(const vector<vector<char>>& tabuleiro, int i, int j, cha
     return false;
 }
     
-    
 
 
 
-bool confere_diagonal(const vector<vector<char>>& tabuleiro, int i, int j, char cor_jogando) {
+bool Reversi::confere_diagonal(int i, int j, char cor_jogando) {
 
     if (tabuleiro[i][j] == ' ') {
 
@@ -195,17 +297,16 @@ bool confere_diagonal(const vector<vector<char>>& tabuleiro, int i, int j, char 
     return false;
 }
 
-    
 
 
 //confere se dada posição do tabuleiro é uma jogada válida
-bool e_valido(const vector<vector<char>>& tabuleiro, int i, int j, char cor_jogando) {
+bool Reversi::e_valido(int i, int j, char cor_jogando) {
     
-    if (confere_vertical(tabuleiro, i, j, cor_jogando))
+    if (confere_vertical(i, j, cor_jogando))
         return true;
-    if (confere_horizontal(tabuleiro, i, j, cor_jogando))
+    if (confere_horizontal(i, j, cor_jogando))
         return true;
-    if (confere_diagonal(tabuleiro, i, j, cor_jogando))
+    if (confere_diagonal(i, j, cor_jogando))
         return true;
     
     return false;
@@ -213,9 +314,26 @@ bool e_valido(const vector<vector<char>>& tabuleiro, int i, int j, char cor_joga
 
 
 
+void Reversi::jogadas_possiveis (char cor_jogando) {
+    
+    jogadas_possiveis_linha.clear();
+    jogadas_possiveis_coluna.clear();
+
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j){
+            if (e_valido(i, j, cor_jogando)){
+                jogadas_possiveis_linha.push_back(i);
+                jogadas_possiveis_coluna.push_back(j);
+                cout << "(" << i << ", " << j << ")" << endl;
+            }
+        }
+    }
+    
+}
 
 
-vector<vector<char>> inversao_da_cor_vertical(vector<vector<char>>& tabuleiro, int i, int j, char cor_jogando) {
+
+vector<vector<char>> Reversi::inversao_da_cor_vertical(int i, int j, char cor_jogando) {
     int x;
     
         
@@ -259,9 +377,7 @@ vector<vector<char>> inversao_da_cor_vertical(vector<vector<char>>& tabuleiro, i
 
 
 
-
-
-vector<vector<char>> inversao_da_cor_horizontal(vector<vector<char>>& tabuleiro, int i, int j, char cor_jogando) {
+vector<vector<char>> Reversi::inversao_da_cor_horizontal(int i, int j, char cor_jogando) {
     int y;
 
         
@@ -307,10 +423,7 @@ vector<vector<char>> inversao_da_cor_horizontal(vector<vector<char>>& tabuleiro,
 
 
 
-
-
-
-vector<vector<char>> inversao_da_cor_diagonal(vector<vector<char>>& tabuleiro, int i, int j, char cor_jogando) {
+vector<vector<char>> Reversi::inversao_da_cor_diagonal(int i, int j, char cor_jogando) {
     int x, y;
 
 
@@ -384,227 +497,4 @@ vector<vector<char>> inversao_da_cor_diagonal(vector<vector<char>>& tabuleiro, i
 
     return tabuleiro;
     
-}
-
-
-
-//escolhe uma cor de forma aleatória para começar o jogo
-char seleciona_cor_aleatoria () {
-
-    vector<char> cores = {'B', 'W'};
-
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> distrib(0, cores.size() - 1);
-
-    int indice_aleatorio = distrib(gen);
-
-    
-    return cores[indice_aleatorio];
-    
-}
-
-
-
-
-void jogadas_possiveis (const vector<vector<char>>& tabuleiro, vector<int>& jogadas_possiveis_linha, vector<int>& jogadas_possiveis_coluna, char cor_jogando) {
-    
-    jogadas_possiveis_linha.clear();
-    jogadas_possiveis_coluna.clear();
-
-    for (int i = 0; i < 8; ++i) {
-        for (int j = 0; j < 8; ++j){
-            if (e_valido(tabuleiro, i, j, cor_jogando)){
-                jogadas_possiveis_linha.push_back(i);
-                jogadas_possiveis_coluna.push_back(j);
-                cout << "(" << i << ", " << j << ")" << endl;
-            }
-        }
-    }
-    
-}
-
-
-
-
-void contagem_pontos (const vector<vector<char>>& tabuleiro) {
-    int cont_b = 0;
-    int cont_w = 0;
-
-    for (int i = 0; i <= 7; ++i)
-        for (int j = 0; j <= 7; ++j) {
-            if (tabuleiro[i][j] == 'B')
-                ++cont_b;
-            else if (tabuleiro[i][j] == 'W')
-                ++cont_w;
-        }
-
-    cout << endl << "B: " << cont_b << " pontos" << endl << "W: " << cont_w << " pontos" << endl;
-
-}
-
-
-
-//confere se o tabuleiro está cheio
-bool tabuleiro_esta_cheio (const vector<vector<char>>& tabuleiro) {
-    int i, j;
-    for (i = 0; i < 8; ++i){
-        for (j = 0; j < 8; ++j){
-            if (tabuleiro[i][j] == ' ')
-                break;
-        }
-        if (j < 8)
-            break;
-    }
-    if (i == 8 && j == 8)
-        return true;
-    else
-        return false;
-}
-
-
-
-
-
-int main() {
-    int linha, coluna, i, j;
-    char cor_inicial;
-    vector<vector<char>> tabuleiro;
-    vector<int> jogadas_possiveis_linha;
-    vector<int> jogadas_possiveis_coluna;
-    tabuleiro.resize(8);
-    for (int i=0; i<8; i++){
-    tabuleiro[i].resize(8, ' ');
-    }
-    tabuleiro[3][3] = 'B';
-    tabuleiro[4][4] = 'B';
-    tabuleiro[3][4] = 'W';
-    tabuleiro[4][3] = 'W';
-    cout << "B: BLACK" << endl << "W: WHITE" << endl;
-    imprime_tabuleiro(tabuleiro, 8, 8);
-    contagem_pontos(tabuleiro);
-    cor_inicial = seleciona_cor_aleatoria();
-    cout << endl << "A cor " << cor_inicial << " começa jogando" << endl;
-    cout << endl << "Jogadas possíveis para " << cor_inicial << ": " << endl;
-    for (i = 0; i < 8; ++i){
-        for (j = 0; j < 8; ++j){
-            if (e_valido(tabuleiro, i, j, cor_inicial)){
-                jogadas_possiveis_linha.push_back(i);
-                jogadas_possiveis_coluna.push_back(j);
-                cout << "(" << i << ", " << j << ")" << endl;
-            }
-        }
-    }
-    cout << endl << endl;
-
-    
-    while (cin >> linha >> coluna) {
-
-        if (linha < 0 || linha > 7 || coluna < 0 || coluna > 7) {
-            cout << "ERRO: jogada inválida" << endl;
-            continue;
-        }
-        
-
-        for (i = 0; i < jogadas_possiveis_linha.size() && i < jogadas_possiveis_coluna.size(); ++i) {
-            if (linha == jogadas_possiveis_linha[i] && coluna == jogadas_possiveis_coluna[i]) {
-                tabuleiro[linha][coluna] = cor_inicial;
-                inversao_da_cor_vertical(tabuleiro, linha, coluna, cor_inicial);
-                inversao_da_cor_horizontal(tabuleiro, linha, coluna, cor_inicial);
-                inversao_da_cor_diagonal(tabuleiro, linha, coluna, cor_inicial);
-                imprime_tabuleiro(tabuleiro, 8, 8);
-                contagem_pontos(tabuleiro);
-                break;
-            }
-        }
-        
-
-
-        if (i == jogadas_possiveis_linha.size() || i == jogadas_possiveis_coluna.size()) {
-            cout << "ERRO: jogada inválida" << endl;
-            continue;
-        }
-        
-
-        if (tabuleiro_esta_cheio (tabuleiro))
-            return 0;
-
-        
-        cout << endl << "Jogadas possíveis para " << encontrar_complemento_da_cor(cor_inicial) << ": " << endl;
-
-        jogadas_possiveis (tabuleiro, jogadas_possiveis_linha, jogadas_possiveis_coluna, encontrar_complemento_da_cor(cor_inicial));
-
-        cout << endl;
-
-        if (jogadas_possiveis_linha.empty() && jogadas_possiveis_coluna.empty()) {
-            cout << "PASS" << endl;
-            cout << endl << "Jogadas possíveis para " << cor_inicial << ": " << endl;
-            jogadas_possiveis (tabuleiro, jogadas_possiveis_linha, jogadas_possiveis_coluna, cor_inicial);
-            cout << endl;
-            if (jogadas_possiveis_linha.empty() && jogadas_possiveis_coluna.empty()) {
-                cout << "PASS";
-                return 0;
-            }
-            else
-                continue;
-        }
-
-        while (cin >> linha >> coluna) {
-
-            if (linha < 0 || linha > 7 || coluna < 0 || coluna > 7) {
-                cout << "ERRO: jogada inválida" << endl;
-                continue;
-            }
-            
-
-            for (i = 0; i < jogadas_possiveis_linha.size() && i < jogadas_possiveis_coluna.size(); ++i) {
-                if (linha == jogadas_possiveis_linha[i] && coluna == jogadas_possiveis_coluna[i]) {
-                    tabuleiro[linha][coluna] = encontrar_complemento_da_cor(cor_inicial);
-                    inversao_da_cor_vertical(tabuleiro, linha, coluna, encontrar_complemento_da_cor(cor_inicial));
-                    inversao_da_cor_horizontal(tabuleiro, linha, coluna, encontrar_complemento_da_cor(cor_inicial));
-                    inversao_da_cor_diagonal(tabuleiro, linha, coluna, encontrar_complemento_da_cor(cor_inicial));
-                    imprime_tabuleiro(tabuleiro, 8, 8);
-                    contagem_pontos(tabuleiro);
-                    break;
-                }
-            }
-
-
-            if (i == jogadas_possiveis_linha.size() || i == jogadas_possiveis_coluna.size()) {
-                cout << "ERRO: jogada inválida" << endl;
-                continue;
-            }
-
-
-            if (tabuleiro_esta_cheio (tabuleiro))
-                return 0;
-
-
-            cout << endl << "Jogadas possíveis para " << cor_inicial << ": " << endl;
-
-            jogadas_possiveis (tabuleiro, jogadas_possiveis_linha, jogadas_possiveis_coluna, cor_inicial);
-
-            cout << endl;
-
-            if (jogadas_possiveis_linha.empty() && jogadas_possiveis_coluna.empty()) {
-                cout << "PASS" << endl;
-                cout << endl << "Jogadas possíveis para " << encontrar_complemento_da_cor(cor_inicial) << ": " << endl;
-                jogadas_possiveis (tabuleiro, jogadas_possiveis_linha, jogadas_possiveis_coluna, encontrar_complemento_da_cor(cor_inicial));
-                cout << endl;
-                if (jogadas_possiveis_linha.empty() && jogadas_possiveis_coluna.empty()) {
-                    cout << "PASS";
-                    return 0;
-                }
-                else
-                    continue;
-            }
-
-            else
-                break;
-            
-        }
-        
-    }
-
-    return 0;
 }
