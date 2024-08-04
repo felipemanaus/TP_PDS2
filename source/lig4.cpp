@@ -5,7 +5,6 @@
 using namespace std;
 
 
-
 Lig4::Lig4(jogador p1, jogador p2) : jogo() {
     jogadores = {p1, p2};
 }
@@ -17,46 +16,101 @@ bool Lig4::jogada_valida(int coluna) {
     
 }
 
-bool Lig4::verificar_vitoria_horizontal(int linha_aux){
-    for(int j=0; j<colunas-3; j++){ //verifico as colunas respectivas àquela linha 
-        int contador = 0;
-        for (int k=0; k<4; k++){
-            if (tabuleiro[linha_aux][j] != 0 && tabuleiro[linha_aux][j+k]){
-                contador++;
+void Lig4::jogar(){
+    while(1){
+        system("cls");
+        this->imprimir_tabuleiro();
+        bool tabuleiro_cheio = this->verificar_tabuleiro_cheio();
+        if(tabuleiro_cheio){
+            cout << "O jogo acabou" << endl;
+            break;
+        }
+        bool venceu;
+        bool primeiro_jogador = true;
+        for(jogador aux : jogadores){
+            int i = primeiro_jogador ? 1 : 2;
+            primeiro_jogador = !primeiro_jogador;
+            int coluna_desejada, linha_aux = 7;
+            cout << "digite a coluna de sua jogada jogador " << i << endl;
+            cin >> coluna_desejada;
+            while(!jogada_valida(coluna_desejada)){
+                cout << "coluna ja ocupada, escolha outra jogador " << i << endl;
+                cin >> coluna_desejada;
             }
-            else{
-                contador = 0;
+        
+            while (this->tabuleiro[linha_aux][coluna_desejada] != 0){
+                linha_aux--;
+            }
+            this->tabuleiro[linha_aux][coluna_desejada] = i;
+            bool ganhou = this->verificar_vitoria(linha_aux, coluna_desejada);
+            if (ganhou){
+                system("cls");    
+                this->imprimir_tabuleiro();
+                cout << "jogador " << i << " venceu!!!!" << endl;
+                venceu = true;
+                break;
             }
         }
-        if (contador == 4){
-            return true;
+        if (venceu) break;
+    }
+}
+
+bool Lig4::verificar_vertical(int linha_aux, int coluna_aux){
+    int jogada = this->tabuleiro[linha_aux][coluna_aux];
+    int contador = 1;
+    int i_cima = linha_aux;
+    int i_baixo = linha_aux;
+
+    
+    while(1){
+        if(contador==4) return true;
+        if(i_cima > 0 && this->tabuleiro[i_cima - 1][coluna_aux] == jogada){
+            contador++;
+            i_cima--;
         }
+        else break;
+    }
+            
+    while(1){
+        if(contador==4) return true;
+        if(i_baixo < 7 && this->tabuleiro[i_baixo + 1][coluna_aux] == jogada){
+            contador++;
+            i_baixo++;
+        }
+        else break;
     }
     return false;
 }
 
 
+bool Lig4::verificar_horizontal(int linha_aux, int coluna_aux ){
+    int jogada = this->tabuleiro[linha_aux][coluna_aux];
+    int contador = 1;
+    int j_esquerda = coluna_aux;
+    int j_direita = coluna_aux;
 
-bool Lig4::verificar_vitoria_vertical(int coluna_aux ){
-    for(int i=0; i<linhas-3; i++){ //verifico as linhas respectivas àquela coluna
-        int contador = 0;
-        for (int k=0; k<4; k++){
-            if (tabuleiro[i][coluna_aux] != 0 && tabuleiro[i+k][coluna_aux]){
-                contador++;
-            }
-            else{
-                contador = 0;
-            }
+    
+    while(1){
+        if(contador==4) return true;
+        if(j_esquerda > 0 && this->tabuleiro[linha_aux][j_esquerda - 1] == jogada){
+            contador++;
+            j_esquerda--;
         }
-        if (contador == 4){
-            return true;
+        else break;
+    }
+            
+    while(1){
+        if(contador==4) return true;
+        if(j_direita < 7 && this->tabuleiro[linha_aux][j_direita + 1] == jogada){
+            contador++;
+            j_direita++;
         }
+        else break;
     }
     return false;
 }
 
-
-bool Lig4::verificar_vitoria_diagonal(int linha_aux, int coluna_aux){
+bool Lig4::verificar_diagonal(int linha_aux, int coluna_aux){
     int posicao =  tabuleiro[linha_aux][coluna_aux];
     int contador = 0;
     for (int i=-3; i<4; i++){
@@ -88,36 +142,13 @@ bool Lig4::verificar_vitoria_diagonal(int linha_aux, int coluna_aux){
     return false;
 }
 
-bool Lig4::verificar_vitoria(int linha_aux, int coluna_aux){
-    if (verificar_vitoria_horizontal(linha_aux) || verificar_vitoria_vertical(coluna_aux) || verificar_vitoria_diagonal(linha_aux, coluna_aux))
+
+
+bool Lig4::verificar_vitoria(int linha_aux,int coluna_aux){
+    if(verificar_vertical(linha_aux,coluna_aux) || verificar_horizontal(linha_aux, coluna_aux) || verificar_diagonal(linha_aux, coluna_aux)){
         return true;
-    else 
+    }
+    else{
         return false;
-}
-
-
-
-void Lig4::realizar_jogada() {
-    for (jogador aux : jogadores) {
-        int i = aux.jogada;
-        int coluna_desejada, linha_aux = 7;  // Corrigido para a última linha válida do tabuleiro 8x8
-        cout << "Digite a coluna de sua jogada jogador " << i << endl;
-        cin >> coluna_desejada;
-        if (jogada_valida(coluna_desejada)) {
-            while (linha_aux >= 0 && this->tabuleiro[linha_aux][coluna_desejada] != 0) {
-                linha_aux--;
-            }
-            if (linha_aux >= 0) {
-                this->tabuleiro[linha_aux][coluna_desejada] = i;
-                if (verificar_vitoria(linha_aux, coluna_desejada)) {
-                    cout << "O jogador " << i << " é o vencedor! Parabéns!!" << endl;
-                    return;  // Use 'return' para parar o jogo
-                }
-            } else {
-                cout << "Coluna cheia, escolha outra coluna." << endl;
-            }
-        } else {
-            cout << "Coluna inválida, escolha outra coluna." << endl;
-        }
     }
 }
