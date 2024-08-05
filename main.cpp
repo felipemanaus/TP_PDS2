@@ -5,6 +5,7 @@
 #include "include/reversi.hpp"
 
 int main() {
+    /*
     cadastro cadastro;
     char letra;
 
@@ -61,7 +62,7 @@ int main() {
             }
         }
     }
-
+    */
     Reversi partida;
     int linha, coluna, i;
 
@@ -74,7 +75,7 @@ int main() {
         for (i = 0; i < static_cast<int>(partida.get_jogadas_possiveis_linha().size()) && 
                     i < static_cast<int>(partida.get_jogadas_possiveis_coluna().size()); ++i) {
             if (linha == partida.get_jogadas_possiveis_linha()[i] && coluna == partida.get_jogadas_possiveis_coluna()[i]) {
-                partida.get_tabuleiro()[linha][coluna] = partida.get_cor_inicial();
+                partida.set_tabuleiro(linha, coluna, partida.get_cor_inicial());
                 partida.inversao_da_cor_vertical(linha, coluna, partida.get_cor_inicial());
                 partida.inversao_da_cor_horizontal(linha, coluna, partida.get_cor_inicial());
                 partida.inversao_da_cor_diagonal(linha, coluna, partida.get_cor_inicial());
@@ -119,7 +120,7 @@ int main() {
             for (i = 0; i < static_cast<int>(partida.get_jogadas_possiveis_linha().size()) && 
                         i < static_cast<int>(partida.get_jogadas_possiveis_coluna().size()); ++i) {
                 if (linha == partida.get_jogadas_possiveis_linha()[i] && coluna == partida.get_jogadas_possiveis_coluna()[i]) {
-                    partida.get_tabuleiro()[linha][coluna] = partida.encontrar_complemento_da_cor(partida.get_cor_inicial());
+                    partida.set_tabuleiro(linha, coluna, partida.encontrar_complemento_da_cor(partida.get_cor_inicial()));
                     partida.inversao_da_cor_vertical(linha, coluna, partida.encontrar_complemento_da_cor(partida.get_cor_inicial()));
                     partida.inversao_da_cor_horizontal(linha, coluna, partida.encontrar_complemento_da_cor(partida.get_cor_inicial()));
                     partida.inversao_da_cor_diagonal(linha, coluna, partida.encontrar_complemento_da_cor(partida.get_cor_inicial()));

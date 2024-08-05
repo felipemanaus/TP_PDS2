@@ -498,3 +498,8 @@ vector<vector<char>> Reversi::inversao_da_cor_diagonal(int i, int j, char cor_jo
     return tabuleiro;
     
 }
+
+
+void Reversi::set_tabuleiro (int linha, int coluna, char ch) {
+    this->tabuleiro [linha][coluna] = ch;
+}

@@ -30,6 +30,7 @@ class Reversi : public jogo {
        vector<vector<char>> inversao_da_cor_vertical(int, int, char);
        vector<vector<char>> inversao_da_cor_horizontal(int, int, char);
        vector<vector<char>> inversao_da_cor_diagonal(int, int, char);
+       void set_tabuleiro (int, int, char);
 
     private:
         vector<vector<char>> tabuleiro;
