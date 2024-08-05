@@ -12,7 +12,9 @@ using namespace std;
 
 class Reversi : public jogo {
     public:
+       vector<jogador> jogadores;
        Reversi();
+       
        vector<vector<char>> get_tabuleiro();
        char get_cor_inicial();
        vector<int> get_jogadas_possiveis_linha();
@@ -31,6 +33,7 @@ class Reversi : public jogo {
        vector<vector<char>> inversao_da_cor_horizontal(int, int, char);
        vector<vector<char>> inversao_da_cor_diagonal(int, int, char);
        void set_tabuleiro (int, int, char);
+       void jogar();
 
     private:
         vector<vector<char>> tabuleiro;

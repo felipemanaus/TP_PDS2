@@ -11,30 +11,17 @@ using namespace std;
 
 
 Reversi::Reversi() : jogo() {
+    
+
     tabuleiro.resize(linhas);
     for (int i=0; i<linhas; i++){
         tabuleiro[i].resize(colunas, ' ');
     }
-    tabuleiro[3][3] = seleciona_cor_aleatoria();
+    tabuleiro[3][3] = 'W';
     tabuleiro[4][4] = tabuleiro[3][3];
     tabuleiro[3][4] = encontrar_complemento_da_cor(tabuleiro[3][3]);
     tabuleiro[4][3] = tabuleiro[3][4];
-    cout << "B: BLACK" << endl << "W: WHITE" << endl;
-    imprimir_tabuleiro();
-    contagem_pontos();
-    cor_inicial = seleciona_cor_aleatoria();
-    cout << endl << "A cor " << cor_inicial << " começa jogando" << endl;
-    cout << endl << "Jogadas possíveis para " << cor_inicial << ": " << endl;
-    for (int i = 0; i < 8; ++i){
-        for (int j = 0; j < 8; ++j){
-            if (e_valido(i, j, cor_inicial)){
-                jogadas_possiveis_linha.push_back(i);
-                jogadas_possiveis_coluna.push_back(j);
-                cout << "(" << i << ", " << j << ")" << endl;
-            }
-        }
-    }
-    cout << endl << endl;
+    
 }
 
 
@@ -502,4 +489,121 @@ vector<vector<char>> Reversi::inversao_da_cor_diagonal(int i, int j, char cor_jo
 
 void Reversi::set_tabuleiro (int linha, int coluna, char ch) {
     this->tabuleiro [linha][coluna] = ch;
+}
+
+void Reversi::jogar (){
+    system("cls");
+    cout << "B: BLACK" << endl << "W: WHITE" << endl;
+    imprimir_tabuleiro();
+    contagem_pontos();
+    cor_inicial = 'W';
+    cout << endl << "A cor " << cor_inicial << " comeca jogando" << endl;
+    cout << endl << "Jogadas possiveis para " << cor_inicial << ": " << endl;
+    for (int i = 0; i < 8; ++i){
+        for (int j = 0; j < 8; ++j){
+            if (e_valido(i, j, cor_inicial)){
+                jogadas_possiveis_linha.push_back(i);
+                jogadas_possiveis_coluna.push_back(j);
+                cout << "(" << i << ", " << j << ")" << endl;
+            }
+        }
+    }
+    cout << endl << endl;
+    int linha, coluna, i;
+
+    while (cin >> linha >> coluna) {
+        if (linha < 0 || linha > 7 || coluna < 0 || coluna > 7) {
+            cout << "ERRO: jogada invalida" << endl;
+            continue;
+        }
+
+        for (i = 0; i < static_cast<int>(get_jogadas_possiveis_linha().size()) && 
+                    i < static_cast<int>(get_jogadas_possiveis_coluna().size()); ++i) {
+            if (linha == get_jogadas_possiveis_linha()[i] && coluna == get_jogadas_possiveis_coluna()[i]) {
+                set_tabuleiro(linha, coluna, get_cor_inicial());
+                inversao_da_cor_vertical(linha, coluna, get_cor_inicial());
+                inversao_da_cor_horizontal(linha, coluna, get_cor_inicial());
+                inversao_da_cor_diagonal(linha, coluna, get_cor_inicial());
+                system("cls");
+                imprimir_tabuleiro();
+                contagem_pontos();
+                break;
+            }
+        }
+
+        if (i == static_cast<int>(get_jogadas_possiveis_linha().size()) || 
+            i == static_cast<int>(get_jogadas_possiveis_coluna().size())) {
+            cout << "ERRO: jogada invalida" << endl;
+            continue;
+        }
+
+        if (verificar_tabuleiro_cheio())
+            return ;
+
+        cout << endl << "Jogadas possiveis para " << encontrar_complemento_da_cor(get_cor_inicial()) << ": " << endl;
+        jogadas_possiveis(encontrar_complemento_da_cor(get_cor_inicial()));
+        cout << endl;
+
+        if (get_jogadas_possiveis_linha().empty() && get_jogadas_possiveis_coluna().empty()) {
+            cout << "PASS" << endl;
+            cout << endl << "Jogadas possiveis para " << get_cor_inicial() << ": " << endl;
+            jogadas_possiveis(get_cor_inicial());
+            cout << endl;
+            if (get_jogadas_possiveis_linha().empty() && get_jogadas_possiveis_coluna().empty()) {
+                cout << "PASS";
+                return ;
+            } else {
+                continue;
+            }
+        }
+
+        while (cin >> linha >> coluna) {
+            if (linha < 0 || linha > 7 || coluna < 0 || coluna > 7) {
+                cout << "ERRO: jogada invalida" << endl;
+                continue;
+            }
+
+            for (i = 0; i < static_cast<int>(get_jogadas_possiveis_linha().size()) && 
+                        i < static_cast<int>(get_jogadas_possiveis_coluna().size()); ++i) {
+                if (linha == get_jogadas_possiveis_linha()[i] && coluna == get_jogadas_possiveis_coluna()[i]) {
+                    set_tabuleiro(linha, coluna, encontrar_complemento_da_cor(get_cor_inicial()));
+                    inversao_da_cor_vertical(linha, coluna, encontrar_complemento_da_cor(get_cor_inicial()));
+                    inversao_da_cor_horizontal(linha, coluna, encontrar_complemento_da_cor(get_cor_inicial()));
+                    inversao_da_cor_diagonal(linha, coluna, encontrar_complemento_da_cor(get_cor_inicial()));
+                    system("cls");
+                    imprimir_tabuleiro();
+                    contagem_pontos();
+                    break;
+                }
+            }
+
+            if (i == static_cast<int>(get_jogadas_possiveis_linha().size()) || 
+                i == static_cast<int>(get_jogadas_possiveis_coluna().size())) {
+                cout << "ERRO: jogada invalida" << endl;
+                continue;
+            }
+
+            if (verificar_tabuleiro_cheio())
+                return ;
+
+            cout << endl << "Jogadas possiveis para " << get_cor_inicial() << ": " << endl;
+            jogadas_possiveis(get_cor_inicial());
+            cout << endl;
+
+            if (get_jogadas_possiveis_linha().empty() && get_jogadas_possiveis_coluna().empty()) {
+                cout << "PASS" << endl;
+                cout << endl << "Jogadas possiveis para " << encontrar_complemento_da_cor(get_cor_inicial()) << ": " << endl;
+                jogadas_possiveis(encontrar_complemento_da_cor(get_cor_inicial()));
+                cout << endl;
+                if (get_jogadas_possiveis_linha().empty() && get_jogadas_possiveis_coluna().empty()) {
+                    cout << "PASS";
+                    return ;
+                } else {
+                    continue;
+                }
+            } else {
+                break;
+            }
+        }
+    }
 }
