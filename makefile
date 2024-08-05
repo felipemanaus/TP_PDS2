@@ -10,9 +10,6 @@ endif
 
 all: obj main
 
-obj:
-	mkdir obj
-
 main: obj/cadastro.o obj/jogador.o obj/jogo.o obj/lig4.o obj/reversi.o obj/main.o
 	g++ -Wall -std=c++11 -o main obj/cadastro.o obj/jogador.o obj/jogo.o obj/lig4.o obj/reversi.o obj/main.o
 

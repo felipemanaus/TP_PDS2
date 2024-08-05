@@ -1,6 +1,6 @@
 comando de compilacao, execucao e limpeza:
+    
     mingw32-make 
-    ./main.exe
     mingw32-make clean
 
 comandos para jogar mudancas em branch_especifica:
