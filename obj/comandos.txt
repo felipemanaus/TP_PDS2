@@ -2,6 +2,7 @@ Comandos de compilação, execução e limpeza:
     mingw32-make
     ./main
     mingw32-make clean
+    digite FS para finalizar execução
 
 Comandos para enviar mudanças para branch_específica:
     git add .

@@ -9,7 +9,6 @@ int main() {
     string entrada;
 
     while(true) {
-        cout << endl;
         cout << "Digite uma das entradas:" << endl;
         cout << "CJ ou Cadastrar Jogador" << endl;
         cout << "RJ ou Remover Jogador" << endl;
