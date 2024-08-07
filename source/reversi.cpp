@@ -1,49 +1,32 @@
 #include "../include/Reversi.hpp"
-#include "../include/jogo.hpp"
-#include <iostream>
-#include <vector>
-#include <random>
-
-
-
-using namespace std;
-
-
 
 Reversi::Reversi() : jogo() {
-    
-
     tabuleiro.resize(linhas);
     for (int i=0; i<linhas; i++){
         tabuleiro[i].resize(colunas, ' ');
     }
+
     tabuleiro[3][3] = 'W';
     tabuleiro[4][4] = tabuleiro[3][3];
     tabuleiro[3][4] = encontrar_complemento_da_cor(tabuleiro[3][3]);
     tabuleiro[4][3] = tabuleiro[3][4];
-    
 }
-
 
 vector<vector<char>> Reversi::get_tabuleiro() {
     return tabuleiro;
 }
 
-
 char Reversi::get_cor_inicial() {
     return cor_inicial;
 }
-
 
 vector<int> Reversi::get_jogadas_possiveis_linha() {
     return jogadas_possiveis_linha;
 }
 
-
 vector<int> Reversi::get_jogadas_possiveis_coluna() {
     return jogadas_possiveis_coluna;
 }
-
 
 void Reversi::imprimir_tabuleiro() {
     cout << endl << endl;
@@ -76,9 +59,6 @@ void Reversi::imprimir_tabuleiro() {
     cout << endl;
 }
 
-
-
-
 //confere se o tabuleiro está cheio
 bool Reversi::verificar_tabuleiro_cheio () {
     int i, j;
@@ -96,17 +76,12 @@ bool Reversi::verificar_tabuleiro_cheio () {
         return false;
 }
 
-
-
-
 char Reversi::encontrar_complemento_da_cor(char cor_jogando){
     if ('B' == cor_jogando)
         return 'W';
     else
         return 'B';
 }
-
-
 
 //escolhe uma cor de forma aleatória para começar o jogo
 char Reversi::seleciona_cor_aleatoria () {
@@ -119,12 +94,9 @@ char Reversi::seleciona_cor_aleatoria () {
 
     int indice_aleatorio = distrib(gen);
 
-    
     return cores[indice_aleatorio];
     
 }
-
-
 
 void Reversi::contagem_pontos () {
     int cont_b = 0;
@@ -137,15 +109,10 @@ void Reversi::contagem_pontos () {
             else if (tabuleiro[i][j] == 'W')
                 ++cont_w;
         }
-
     cout << endl << "B: " << cont_b << " pontos" << endl << "W: " << cont_w << " pontos" << endl;
-
 }
 
-
-
 bool Reversi::confere_vertical(int i, int j, char cor_jogando) {
-
     if (tabuleiro[i][j] == ' ') {
 
         //confere vertical para cima
@@ -175,15 +142,12 @@ bool Reversi::confere_vertical(int i, int j, char cor_jogando) {
                 }
             }
     }
-
     return false;
-
 }
 
 
 
 bool Reversi::confere_horizontal(int i, int j, char cor_jogando) {
-
     if (tabuleiro[i][j] == ' ') {
 
         //confere horizontal para a esquerda
@@ -213,15 +177,10 @@ bool Reversi::confere_horizontal(int i, int j, char cor_jogando) {
                 }
             } 
     }
-
     return false;
 }
-    
-
-
 
 bool Reversi::confere_diagonal(int i, int j, char cor_jogando) {
-
     if (tabuleiro[i][j] == ' ') {
 
         //confere diagonal a noroeste
@@ -280,29 +239,21 @@ bool Reversi::confere_diagonal(int i, int j, char cor_jogando) {
                 }
             }
     }
-
     return false;
 }
 
-
-
 //confere se dada posição do tabuleiro é uma jogada válida
 bool Reversi::e_valido(int i, int j, char cor_jogando) {
-    
     if (confere_vertical(i, j, cor_jogando))
         return true;
     if (confere_horizontal(i, j, cor_jogando))
         return true;
     if (confere_diagonal(i, j, cor_jogando))
         return true;
-    
     return false;
 }
 
-
-
 void Reversi::jogadas_possiveis (char cor_jogando) {
-    
     jogadas_possiveis_linha.clear();
     jogadas_possiveis_coluna.clear();
 
@@ -315,15 +266,10 @@ void Reversi::jogadas_possiveis (char cor_jogando) {
             }
         }
     }
-    
 }
-
-
 
 vector<vector<char>> Reversi::inversao_da_cor_vertical(int i, int j, char cor_jogando) {
     int x;
-    
-        
             //altera a cor na vertical para cima
             if (i >= 2) {
                 if (tabuleiro[i - 1][j] == encontrar_complemento_da_cor(cor_jogando)) {
@@ -357,17 +303,11 @@ vector<vector<char>> Reversi::inversao_da_cor_vertical(int i, int j, char cor_jo
                     }
                 }
             }
-
     return tabuleiro;
-    
 }
-
-
 
 vector<vector<char>> Reversi::inversao_da_cor_horizontal(int i, int j, char cor_jogando) {
     int y;
-
-        
       //altera a cor na horizontal para a esquerda  
         if (j >= 2) {
             
@@ -402,18 +342,12 @@ vector<vector<char>> Reversi::inversao_da_cor_horizontal(int i, int j, char cor_
                         break;
                 }
             }
-        } 
-  
-
+        }
     return tabuleiro;
 }
 
-
-
 vector<vector<char>> Reversi::inversao_da_cor_diagonal(int i, int j, char cor_jogando) {
     int x, y;
-
-
         //altera a cor na diagonal a noroeste
             if (i >= 2 && j >= 2) {
                 if (tabuleiro[i - 1][j - 1] == encontrar_complemento_da_cor(cor_jogando)) {
@@ -481,11 +415,8 @@ vector<vector<char>> Reversi::inversao_da_cor_diagonal(int i, int j, char cor_jo
                     }
                 }
             }
-
     return tabuleiro;
-    
 }
-
 
 void Reversi::set_tabuleiro (int linha, int coluna, char ch) {
     this->tabuleiro [linha][coluna] = ch;

@@ -1,4 +1,4 @@
-joao joao 0 0 0 0
-maria maria 0 0 0 0
+maria maria 0 0 0 1
 felipe felipe 0 0 0 0
 natan natan 0 0 0 0
+joao joao 0 0 1 0

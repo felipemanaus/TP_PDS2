@@ -1,7 +1,5 @@
 #include "../include/jogo.hpp"
 
-using namespace std;
-
 jogo::jogo (){
     this->linhas = 8;
     this->colunas = 8;

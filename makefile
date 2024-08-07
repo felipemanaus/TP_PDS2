@@ -11,7 +11,7 @@ endif
 all: obj main
 
 main: obj/cadastro.o obj/jogador.o obj/jogo.o obj/lig4.o obj/reversi.o obj/main.o
-	g++ -Wall -std=c++11 -o main obj/cadastro.o obj/jogador.o obj/jogo.o obj/lig4.o obj/reversi.o obj/main.o
+	g++ -Wall -std=c++11 -o $(EXE) obj/cadastro.o obj/jogador.o obj/jogo.o obj/lig4.o obj/reversi.o obj/main.o
 
 obj/cadastro.o: source/cadastro.cpp include/cadastro.hpp
 	g++ -Wall -std=c++11 -c source/cadastro.cpp -o obj/cadastro.o

@@ -1,5 +1,14 @@
 #include "../include/jogador.hpp"
 
+jogador::jogador(){
+    this->nome = "default";
+    this->apelido = "default";
+    this->vitorias_reversi = 0;
+    this->derrotas_reversi = 0;
+    this->vitorias_lig4 = 0;
+    this->derrotas_lig4 = 0;
+}
+
 jogador::jogador(string nome, string apelido) {
     this->nome = nome;
     this->apelido = apelido;
