@@ -15,7 +15,6 @@ class Reversi : public jogo {
        vector<jogador> jogadores;
        Reversi();
        
-       
        vector<vector<char>> get_tabuleiro();
        char get_cor_inicial();
        vector<int> get_jogadas_possiveis_linha();
