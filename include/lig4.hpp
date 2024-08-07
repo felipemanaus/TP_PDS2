@@ -3,6 +3,7 @@
 
 #include "./jogo.hpp"
 #include "./jogador.hpp"
+#include <utility>
 #include <vector>
 #include <iostream>
 
@@ -11,10 +12,10 @@ using namespace std;
 
 class Lig4 : public jogo{    
 public:
-    vector<jogador> jogadores; 
+    pair<jogador,jogador> jogadores; 
     Lig4(jogador, jogador);
     bool jogada_valida(int);
-    void jogar();
+    jogador* jogar();
     //nao precisa da funcao imprime_tabuleiro
 
     bool verificar_vertical(int,int);
