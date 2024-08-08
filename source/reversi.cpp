@@ -439,7 +439,7 @@ char Reversi::verificar_vitoria(){
 
     if(cont_w > cont_b) return 'W';
     else if(cont_w < cont_b) return 'B';
-    else return 'N';
+    else return 'D';
 }
 
 char Reversi::jogar (){
@@ -488,8 +488,7 @@ char Reversi::jogar (){
             continue;
         }
 
-        if (verificar_tabuleiro_cheio())
-            return ;
+        if (verificar_tabuleiro_cheio()) return verificar_vitoria();
 
         cout << endl << "Jogadas possiveis para " << encontrar_complemento_da_cor(get_cor_inicial()) << ": " << endl;
         jogadas_possiveis(encontrar_complemento_da_cor(get_cor_inicial()));
@@ -502,7 +501,7 @@ char Reversi::jogar (){
             cout << endl;
             if (get_jogadas_possiveis_linha().empty() && get_jogadas_possiveis_coluna().empty()) {
                 cout << "PASS";
-                return ;
+                return verificar_vitoria();
             } else {
                 continue;
             }
@@ -534,8 +533,7 @@ char Reversi::jogar (){
                 continue;
             }
 
-            if (verificar_tabuleiro_cheio())
-                return ;
+            if (verificar_tabuleiro_cheio()) return verificar_vitoria();
 
             cout << endl << "Jogadas possiveis para " << get_cor_inicial() << ": " << endl;
             jogadas_possiveis(get_cor_inicial());
@@ -548,7 +546,7 @@ char Reversi::jogar (){
                 cout << endl;
                 if (get_jogadas_possiveis_linha().empty() && get_jogadas_possiveis_coluna().empty()) {
                     cout << "PASS";
-                    return ;
+                    return verificar_vitoria();
                 } else {
                     continue;
                 }
@@ -557,6 +555,5 @@ char Reversi::jogar (){
             }
         }
     }
-    char vencedor = verificar_vitoria();
-    return vencedor;
+    return verificar_vitoria();
 }
