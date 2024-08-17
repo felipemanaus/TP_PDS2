@@ -41,8 +41,14 @@ int Lig4::jogar(){
             if (ganhou) {
                 system("cls");    
                 this->imprimir_tabuleiro();
-                cout << "jogador " << i << " venceu!!!" << endl;
+                cout << "jogador " << i << " venceu!!!" << endl << endl;
                 venceu = true;
+                cout << "digite EP para encerrar partida." << endl;
+                string entrada;
+                cin >> entrada;
+                while (entrada != "EP"){
+                    cin >> entrada;
+                }
                 break;
             }
         }
