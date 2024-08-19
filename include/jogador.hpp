@@ -1,7 +1,9 @@
 #ifndef JOGADOR_HPP
 #define JOGADOR_HPP
 
+#include <iostream>
 #include <string>
+#include <stdexcept>
 
 using namespace std;
 

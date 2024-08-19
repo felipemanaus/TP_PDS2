@@ -1,9 +1,4 @@
-#include <iostream>
-#include <string>
-#include <stdexcept>
 #include "../include/jogador.hpp"
-
-using namespace std;
 
 jogador::jogador() {
     this->nome = "default";

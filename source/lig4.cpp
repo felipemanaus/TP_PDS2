@@ -1,5 +1,4 @@
 #include "../include/Lig4.hpp"
-#include <stdexcept>
 
 Lig4::Lig4(jogador p1, jogador p2) : jogo() {
     jogadores = {p1, p2};

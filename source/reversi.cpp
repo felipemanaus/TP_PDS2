@@ -1,7 +1,5 @@
 #include "../include/Reversi.hpp"
 
-using namespace std;
-
 Reversi::Reversi() : jogo() {
     tabuleiro.resize(linhas);
     for (int i=0; i<linhas; i++){
