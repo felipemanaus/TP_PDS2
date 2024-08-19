@@ -15,7 +15,7 @@ class jogo {
     public:
         jogo ();
         virtual ~jogo() = default;
-        virtual void imprimir_tabuleiro() = 0; // Tambem serve pro lig4 do msm jeito
+        virtual void imprimir_tabuleiro() = 0;
         virtual bool verificar_tabuleiro_cheio() = 0;
 };
 

@@ -13,7 +13,6 @@ class Lig4 : public jogo {
         bool jogada_valida(int);
         bool verificar_tabuleiro_cheio() override;
         int jogar();
-        // Nao precisa da funcao imprime_tabuleiro
 
         bool verificar_vertical(int, int);
         bool verificar_horizontal(int, int);

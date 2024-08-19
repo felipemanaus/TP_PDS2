@@ -15,25 +15,23 @@ class Reversi : public jogo {
         vector<jogador> jogadores;
         Reversi();
 
-        vector<vector<char>> get_tabuleiro();
-        void set_tabuleiro (int, int, char);
-        char get_cor_inicial();
-        vector<int> get_jogadas_possiveis_linha();
-        vector<int> get_jogadas_possiveis_coluna();
-        void imprimir_tabuleiro() override;
+        void imprimir_tabuleiro () override;
         bool verificar_tabuleiro_cheio () override;
         char encontrar_complemento_da_cor(char);
         void contagem_pontos ();
-        bool confere_vertical(int, int, char);
-        bool confere_horizontal(int, int, char);
-        bool confere_diagonal(int, int, char);
-        bool e_valido(int, int, char);
+        bool confere_vertical (int, int, char);
+        bool confere_horizontal (int, int, char);
+        bool confere_diagonal (int, int, char);
+        bool e_valido (int, int, char);
         void jogadas_possiveis (char);
-        vector<vector<char>> inversao_da_cor_vertical(int, int, char);
-        vector<vector<char>> inversao_da_cor_horizontal(int, int, char);
-        vector<vector<char>> inversao_da_cor_diagonal(int, int, char);
-        char verificar_vitoria();
-        char jogar();
+        void imprime_jogadas_possiveis ();
+        void marca_as_jogadas_possiveis_no_tabuleiro ();
+        void desmarca_as_jogadas_possiveis_do_tabuleiro ();
+        vector<vector<char>> inversao_da_cor_vertical (int, int, char);
+        vector<vector<char>> inversao_da_cor_horizontal (int, int, char);
+        vector<vector<char>> inversao_da_cor_diagonal (int, int, char);
+        char verificar_vitoria ();
+        char jogar ();
 };
 
 #endif
