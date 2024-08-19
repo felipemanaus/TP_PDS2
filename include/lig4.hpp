@@ -9,7 +9,9 @@ class Lig4 : public jogo {
     public:
         pair<jogador,jogador> jogadores; 
         Lig4(jogador, jogador);
+        void imprimir_tabuleiro() override;
         bool jogada_valida(int);
+        bool verificar_tabuleiro_cheio() override;
         int jogar();
         // Nao precisa da funcao imprime_tabuleiro
 

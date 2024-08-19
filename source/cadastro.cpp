@@ -36,6 +36,10 @@ void cadastro::listar_jogadores() {
         cout << "REVERSI - V: " << i.vitorias_reversi << " D: " << i.derrotas_reversi << endl;
         cout << "LIG4    - V: " << i.vitorias_lig4 << " D: " << i.derrotas_lig4 << endl;
     }
+
+    char caractere;
+    cout << endl << endl << "Digite qualquer caractere e depois pressione a tecla ENTER para voltar a tela inicial:" << endl;
+    cin >> caractere;
 }
 
 void cadastro::salvar_dados() {

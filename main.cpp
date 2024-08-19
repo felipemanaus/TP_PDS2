@@ -110,6 +110,10 @@ int main() {
                 }
 
                 cadastro.salvar_dados();
+
+                char caractere;
+                cout << endl << endl << "Digite qualquer caractere e depois pressione a tecla ENTER para voltar a tela inicial:" << endl;
+                cin >> caractere;
             }
         }
 

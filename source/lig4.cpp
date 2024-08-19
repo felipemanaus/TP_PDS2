@@ -4,11 +4,52 @@ Lig4::Lig4(jogador p1, jogador p2) : jogo() {
     jogadores = {p1, p2};
 }
 
+
+void Lig4::imprimir_tabuleiro() {
+    //imprime indice das colunas
+    cout << "      "; 
+        for(int j = 0 ; j < colunas ; j++){
+            cout << j << "   ";
+        }
+        cout << endl;
+        cout << "      "; 
+        for(int j = 0 ; j < colunas ; j++){
+            cout << "__" << "  ";
+        }
+        cout << endl;
+
+    //imprime linhas
+    for(int i = 0 ; i < linhas ; i++){
+        cout << i << "    |";
+        for(int j = 0 ; j < colunas ; j++){
+            cout << tabuleiro[i][j] << "   ";
+        }
+        cout << endl ;
+    }
+    cout << endl ;
+}
+
+
 bool Lig4::jogada_valida(int coluna) {
     //checa se a coluna esta cheia
     if(this->tabuleiro[0][coluna] != 0) return false;
     else return true;        
 }
+
+
+bool Lig4::verificar_tabuleiro_cheio() {
+    int contador_de_posicoes_ocupadas = 0;
+    for(int i = 0 ; i < linhas ; i++){
+        for(int j = 0 ; j < colunas ; j++){
+            if(tabuleiro[i][j] != 0){
+                contador_de_posicoes_ocupadas++;
+            }
+        }
+    }
+    if(contador_de_posicoes_ocupadas == colunas*linhas) return true;
+    else return false;
+}
+
 
 int Lig4::jogar(){
     int i;
