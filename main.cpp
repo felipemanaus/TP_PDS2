@@ -46,23 +46,14 @@ int main() {
             string jogo, um, dois;
             cin >> jogo >> um >> dois;
 
+            if(um == dois) {
+                throw std::invalid_argument("Os jogadores não podem ser iguais.");
+            }
+
+            jogador* p1 = cadastro.procurar_apelido(um);
+            jogador* p2 = cadastro.procurar_apelido(dois);
+
             if(jogo == "L") {
-                jogador* p1 = nullptr;
-                jogador* p2 = nullptr;
-
-                for(auto& it : cadastro.jogadores) {
-                    if(it.apelido == um) {
-                        p1 = &it;
-                    } else if(it.apelido == dois) {
-                        p2 = &it;
-                    }
-                }
-
-                if(p1 == nullptr || p2 == nullptr) {
-                    cout << "ERRO: Um ou ambos os jogadores não estão cadastrados." << endl;
-                    continue;
-                }
-
                 Lig4 l(*p1, *p2);
                 int aux = l.jogar();
 
@@ -70,32 +61,14 @@ int main() {
                     p1->ganhador_lig4();
                     p2->perdedor_lig4();
                 }
-                                
+                                    
                 if(aux == 2) {
-                    p2->ganhador_lig4();
                     p1->perdedor_lig4();
+                    p2->ganhador_lig4();
                 }
-
-                cadastro.salvar_dados();
             }
 
             if(jogo == "R") {
-                jogador* p1 = nullptr;
-                jogador* p2 = nullptr;
-
-                for(auto& it : cadastro.jogadores) {
-                    if(it.apelido == um) {
-                        p1 = &it;
-                    } else if(it.apelido == dois) {
-                        p2 = &it;
-                    }
-                }
-
-                if(p1 == nullptr || p2 == nullptr) {
-                    cout << "ERRO: Um ou ambos os jogadores não estão cadastrados." << endl;
-                    continue;
-                }
-
                 Reversi r;
                 char aux = r.jogar();
 
@@ -105,19 +78,19 @@ int main() {
                 }
                                 
                 if(aux == 'B') {
-                    p2->ganhador_reversi();
                     p1->perdedor_reversi();
+                    p2->ganhador_reversi();
                 }
-
-                cadastro.salvar_dados();
 
                 char caractere;
                 cout << endl << endl << "Digite qualquer caractere e depois pressione a tecla ENTER para voltar a tela inicial:" << endl;
                 cin >> caractere;
             }
+
+            cadastro.salvar_dados();
         }
 
-        if(entrada == "FS" || entrada == "Finalizar Sistema") {
+        if(entrada == "FS") {
             return 0;
         }
     }

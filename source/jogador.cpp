@@ -1,6 +1,11 @@
+#include <iostream>
+#include <string>
+#include <stdexcept>
 #include "../include/jogador.hpp"
 
-jogador::jogador(){
+using namespace std;
+
+jogador::jogador() {
     this->nome = "default";
     this->apelido = "default";
     this->vitorias_reversi = 0;
@@ -10,6 +15,9 @@ jogador::jogador(){
 }
 
 jogador::jogador(string nome, string apelido) {
+    if (nome.empty() || apelido.empty()) {
+        throw invalid_argument("Nome e apelido não podem ser vazios.");
+    }
     this->nome = nome;
     this->apelido = apelido;
     this->vitorias_reversi = 0;

@@ -14,6 +14,7 @@ class jogador {
         int vitorias_lig4;
         int derrotas_lig4;
 
+    public:
         jogador();
         jogador(string nome, string apelido);
         void ganhador_reversi();
