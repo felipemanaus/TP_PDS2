@@ -1,4 +1,4 @@
-maria maria 2 1 1 2
+maria maria 2 1 1 7
 felipe felipe 1 1 1 1
 natan natan 1 1 1 1
-joao joao 1 2 2 1
+joao joao 1 2 7 1

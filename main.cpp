@@ -29,9 +29,10 @@ int main() {
         cout << "LJ(Listar Jogadores)" << endl;
         cout << "EP(Executar Partida)" << endl;
         cout << "FS(Finalizar Sistema)" << endl;
-        cout << "<string>" << endl;
-
+        cout << endl;
         cin >> entrada;
+
+
 
         if(entrada == "CJ") {
             cout << "Digite o apelido e o nome:" << endl;
@@ -106,5 +107,6 @@ int main() {
         if(entrada == "FS") {
             return 0;
         }
+
     }
 }
