@@ -1,5 +1,17 @@
+/**
+ * @file jogo.cpp
+ * @brief Implementação da classe base `jogo`, que define a estrutura inicial para jogos com tabuleiros.
+ */
+
 #include "../include/jogo.hpp"
 
+/**
+ * @brief Construtor da classe `jogo`.
+ * 
+ * Inicializa um tabuleiro com 8x8 posições, preenchido com zeros. Lança uma exceção caso a alocação do tabuleiro falhe.
+ * 
+ * @throw std::runtime_error Se a alocação do tabuleiro falhar.
+ */
 jogo::jogo() {
     try {
         this->linhas = 8;

@@ -1,9 +1,27 @@
+/**
+ * @file Lig4.cpp
+ * @brief Implementação das funções da classe `Lig4`, que modela o jogo Lig4, onde dois jogadores competem para alinhar quatro peças em um tabuleiro.
+ */
+
 #include "../include/Lig4.hpp"
 
+/**
+ * @brief Construtor da classe `Lig4`.
+ * 
+ * Inicializa o jogo Lig4 com dois jogadores.
+ * 
+ * @param p1 Primeiro jogador.
+ * @param p2 Segundo jogador.
+ */
 Lig4::Lig4(jogador p1, jogador p2) : jogo() {
     jogadores = {p1, p2};
 }
 
+/**
+ * @brief Imprime o tabuleiro do jogo Lig4 na tela.
+ * 
+ * Exibe o tabuleiro com os índices das colunas e o estado atual de cada célula.
+ */
 void Lig4::imprimir_tabuleiro() {
     // Imprime índice das colunas
     cout << "      "; 
@@ -29,6 +47,16 @@ void Lig4::imprimir_tabuleiro() {
     cout << endl;
 }
 
+/**
+ * @brief Verifica se uma jogada em uma coluna é válida.
+ * 
+ * Uma jogada é considerada válida se a coluna não estiver cheia e estiver dentro dos limites do tabuleiro.
+ * 
+ * @param coluna Coluna a ser verificada.
+ * @return true se a jogada for válida, false caso contrário.
+ * 
+ * @throw std::out_of_range Se a coluna estiver fora dos limites permitidos.
+ */
 bool Lig4::jogada_valida(int coluna) {
     if(coluna < 0 || coluna >= colunas) {
         throw std::out_of_range("Coluna inválida.");
@@ -37,6 +65,13 @@ bool Lig4::jogada_valida(int coluna) {
     return this->tabuleiro[0][coluna] == 0;
 }
 
+/**
+ * @brief Verifica se o tabuleiro está completamente preenchido.
+ * 
+ * Itera por todas as posições do tabuleiro para determinar se não há mais espaços vazios.
+ * 
+ * @return true se o tabuleiro estiver cheio, false caso contrário.
+ */
 bool Lig4::verificar_tabuleiro_cheio() {
     int contador_de_posicoes_ocupadas = 0;
     for(int i = 0; i < linhas; i++) {
@@ -49,6 +84,11 @@ bool Lig4::verificar_tabuleiro_cheio() {
     return contador_de_posicoes_ocupadas == colunas * linhas;
 }
 
+/**
+ * @brief Controla o fluxo principal do jogo, alternando entre os jogadores até que haja um vencedor ou o tabuleiro esteja cheio.
+ * 
+ * @return O índice do jogador vencedor ou 0 em caso de empate.
+ */
 int Lig4::jogar() {
     int i;
     try {
@@ -110,6 +150,17 @@ int Lig4::jogar() {
     return i;
 }
 
+/**
+ * @brief Verifica se há uma condição de vitória na vertical.
+ * 
+ * Verifica se há quatro peças consecutivas na mesma coluna.
+ * 
+ * @param linha_aux Linha da última jogada.
+ * @param coluna_aux Coluna da última jogada.
+ * @return true se houver uma vitória na vertical, false caso contrário.
+ * 
+ * @throw std::out_of_range Se a posição estiver fora dos limites do tabuleiro.
+ */
 bool Lig4::verificar_vertical(int linha_aux, int coluna_aux) {
     if(linha_aux < 0 || linha_aux >= linhas || coluna_aux < 0 || coluna_aux >= colunas) {
         throw std::out_of_range("Posição inválida para verificação vertical.");
@@ -140,6 +191,17 @@ bool Lig4::verificar_vertical(int linha_aux, int coluna_aux) {
     return contador == 4;
 }
 
+/**
+ * @brief Verifica se há uma condição de vitória na horizontal.
+ * 
+ * Verifica se há quatro peças consecutivas na mesma linha.
+ * 
+ * @param linha_aux Linha da última jogada.
+ * @param coluna_aux Coluna da última jogada.
+ * @return true se houver uma vitória na horizontal, false caso contrário.
+ * 
+ * @throw std::out_of_range Se a posição estiver fora dos limites do tabuleiro.
+ */
 bool Lig4::verificar_horizontal(int linha_aux, int coluna_aux) {
     if(linha_aux < 0 || linha_aux >= linhas || coluna_aux < 0 || coluna_aux >= colunas) {
         throw std::out_of_range("Posição inválida para verificação horizontal.");
@@ -170,6 +232,17 @@ bool Lig4::verificar_horizontal(int linha_aux, int coluna_aux) {
     return contador == 4;
 }
 
+/**
+ * @brief Verifica se há uma condição de vitória nas diagonais.
+ * 
+ * Verifica se há quatro peças consecutivas em qualquer uma das duas diagonais possíveis.
+ * 
+ * @param linha_aux Linha da última jogada.
+ * @param coluna_aux Coluna da última jogada.
+ * @return true se houver uma vitória na diagonal, false caso contrário.
+ * 
+ * @throw std::out_of_range Se a posição estiver fora dos limites do tabuleiro.
+ */
 bool Lig4::verificar_diagonal(int linha_aux, int coluna_aux) {
     if(linha_aux < 0 || linha_aux >= linhas || coluna_aux < 0 || coluna_aux >= colunas) {
         throw std::out_of_range("Posição inválida para verificação diagonal.");
@@ -178,6 +251,7 @@ bool Lig4::verificar_diagonal(int linha_aux, int coluna_aux) {
     int posicao = tabuleiro[linha_aux][coluna_aux];
     int contador = 0;
 
+    // Verificação da diagonal principal (canto superior esquerdo ao canto inferior direito)
     for(int i = -3; i < 4; i++) {
         int x = linha_aux + i;
         int y = coluna_aux + i;
@@ -191,6 +265,7 @@ bool Lig4::verificar_diagonal(int linha_aux, int coluna_aux) {
         }
     }
 
+    // Verificação da diagonal secundária (canto inferior esquerdo ao canto superior direito)
     contador = 0;
     for(int j = -3; j < 4; j++) {
         int x = linha_aux + j;
@@ -207,6 +282,15 @@ bool Lig4::verificar_diagonal(int linha_aux, int coluna_aux) {
     return false;
 }
 
+/**
+ * @brief Verifica se há uma condição de vitória em qualquer direção.
+ * 
+ * Combina as verificações vertical, horizontal e diagonal para determinar se há um vencedor.
+ * 
+ * @param linha_aux Linha da última jogada.
+ * @param coluna_aux Coluna da última jogada.
+ * @return true se houver uma vitória em qualquer direção, false caso contrário.
+ */
 bool Lig4::verificar_vitoria(int linha_aux, int coluna_aux) {
     return verificar_vertical(linha_aux, coluna_aux) ||
            verificar_horizontal(linha_aux, coluna_aux) ||

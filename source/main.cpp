@@ -1,9 +1,22 @@
+/**
+ * @file main.cpp
+ * @brief Ponto de entrada para o sistema de gerenciamento de jogadores e execução de partidas dos jogos Reversi e Lig4.
+ */
+
 #include "include/cadastro.hpp"
 #include "include/jogador.hpp"
 #include "include/jogo.hpp"
 #include "include/lig4.hpp"
 #include "include/reversi.hpp"
 
+/**
+ * @brief Função principal do sistema.
+ * 
+ * Exibe um menu para o usuário, permitindo cadastrar jogadores, remover jogadores, listar jogadores, 
+ * executar partidas de Reversi ou Lig4, e finalizar o sistema.
+ * 
+ * @return int Retorna 0 ao finalizar o sistema.
+ */
 int main() {
     cadastro cadastro;
     string entrada;

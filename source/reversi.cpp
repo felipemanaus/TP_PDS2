@@ -1,6 +1,18 @@
+/**
+ * @file Reversi.cpp
+ * @brief Implementação da classe `Reversi`, que modela o jogo Reversi, incluindo a lógica para jogadas, verificação de condições de vitória e manipulação do tabuleiro.
+ */
+
 #include "../include/Reversi.hpp"
 #include <stdexcept> // Para std::out_of_range e std::invalid_argument
 
+/**
+ * @brief Construtor da classe `Reversi`.
+ * 
+ * Inicializa o tabuleiro de jogo com as peças iniciais na configuração padrão do Reversi.
+ * 
+ * @throw std::runtime_error Se houver falha na inicialização do tabuleiro.
+ */
 Reversi::Reversi() : jogo() {
     try {
         tabuleiro.resize(linhas);
@@ -17,6 +29,11 @@ Reversi::Reversi() : jogo() {
     }
 }
 
+/**
+ * @brief Imprime o tabuleiro do jogo Reversi.
+ * 
+ * Exibe o tabuleiro na tela, mostrando a posição atual de todas as peças.
+ */
 void Reversi::imprimir_tabuleiro() {
     try {
         cout << endl << endl;
@@ -50,6 +67,13 @@ void Reversi::imprimir_tabuleiro() {
     }
 }
 
+/**
+ * @brief Verifica se o tabuleiro está completamente cheio.
+ * 
+ * Percorre todas as posições do tabuleiro para determinar se ainda há espaços vazios.
+ * 
+ * @return true se o tabuleiro estiver cheio, false caso contrário.
+ */
 bool Reversi::verificar_tabuleiro_cheio() {
     try {
         int linha, coluna;
@@ -71,6 +95,16 @@ bool Reversi::verificar_tabuleiro_cheio() {
     }
 }
 
+/**
+ * @brief Encontra a cor oposta à cor fornecida.
+ * 
+ * Retorna a cor oposta ('B' para 'W' e vice-versa).
+ * 
+ * @param cor_jogando Cor atual do jogador ('B' ou 'W').
+ * @return A cor complementar.
+ * 
+ * @throw std::invalid_argument Se a cor fornecida for inválida.
+ */
 char Reversi::encontrar_complemento_da_cor(char cor_jogando) {
     try {
         if ('B' == cor_jogando)
@@ -85,6 +119,11 @@ char Reversi::encontrar_complemento_da_cor(char cor_jogando) {
     }
 }
 
+/**
+ * @brief Conta e exibe o número de pontos de cada cor no tabuleiro.
+ * 
+ * Percorre o tabuleiro e conta o número de peças de cada cor ('B' e 'W'), exibindo o resultado.
+ */
 void Reversi::contagem_pontos() {
     try {
         int cont_b = 0;
@@ -105,6 +144,16 @@ void Reversi::contagem_pontos() {
     }
 }
 
+/**
+ * @brief Verifica se há capturas possíveis na vertical.
+ * 
+ * Verifica se a jogada em uma determinada posição do tabuleiro resultaria em capturas de peças na vertical.
+ * 
+ * @param linha Linha da jogada.
+ * @param coluna Coluna da jogada.
+ * @param cor_jogando Cor do jogador que está fazendo a jogada ('B' ou 'W').
+ * @return true se houver capturas possíveis na vertical, false caso contrário.
+ */
 bool Reversi::confere_vertical(int linha, int coluna, char cor_jogando) {
     try {
         if (tabuleiro[linha][coluna] == ' ') {
@@ -142,6 +191,16 @@ bool Reversi::confere_vertical(int linha, int coluna, char cor_jogando) {
     return false;
 }
 
+/**
+ * @brief Verifica se há capturas possíveis na horizontal.
+ * 
+ * Verifica se a jogada em uma determinada posição do tabuleiro resultaria em capturas de peças na horizontal.
+ * 
+ * @param linha Linha da jogada.
+ * @param coluna Coluna da jogada.
+ * @param cor_jogando Cor do jogador que está fazendo a jogada ('B' ou 'W').
+ * @return true se houver capturas possíveis na horizontal, false caso contrário.
+ */
 bool Reversi::confere_horizontal(int linha, int coluna, char cor_jogando) {
     try {
         if (tabuleiro[linha][coluna] == ' ') {
@@ -179,6 +238,16 @@ bool Reversi::confere_horizontal(int linha, int coluna, char cor_jogando) {
     return false;
 }
 
+/**
+ * @brief Verifica se há capturas possíveis nas diagonais.
+ * 
+ * Verifica se a jogada em uma determinada posição do tabuleiro resultaria em capturas de peças nas diagonais.
+ * 
+ * @param linha Linha da jogada.
+ * @param coluna Coluna da jogada.
+ * @param cor_jogando Cor do jogador que está fazendo a jogada ('B' ou 'W').
+ * @return true se houver capturas possíveis nas diagonais, false caso contrário.
+ */
 bool Reversi::confere_diagonal(int linha, int coluna, char cor_jogando) {
     try {
         if (tabuleiro[linha][coluna] == ' ') {
@@ -242,6 +311,16 @@ bool Reversi::confere_diagonal(int linha, int coluna, char cor_jogando) {
     return false;
 }
 
+/**
+ * @brief Verifica se uma jogada é válida.
+ * 
+ * Combina as verificações vertical, horizontal e diagonal para determinar se a jogada resultaria em capturas de peças.
+ * 
+ * @param linha Linha da jogada.
+ * @param coluna Coluna da jogada.
+ * @param cor_jogando Cor do jogador que está fazendo a jogada ('B' ou 'W').
+ * @return true se a jogada for válida, false caso contrário.
+ */
 bool Reversi::e_valido(int linha, int coluna, char cor_jogando) {
     try {
         if (confere_vertical(linha, coluna, cor_jogando))
@@ -257,6 +336,13 @@ bool Reversi::e_valido(int linha, int coluna, char cor_jogando) {
     }
 }
 
+/**
+ * @brief Determina as jogadas possíveis para a cor atual.
+ * 
+ * Preenche os vetores `jogadas_possiveis_linha` e `jogadas_possiveis_coluna` com as coordenadas das jogadas válidas.
+ * 
+ * @param cor_jogando Cor do jogador para o qual as jogadas possíveis serão calculadas ('B' ou 'W').
+ */
 void Reversi::jogadas_possiveis(char cor_jogando) {
     try {
         jogadas_possiveis_linha.clear();
@@ -276,6 +362,11 @@ void Reversi::jogadas_possiveis(char cor_jogando) {
     }
 }
 
+/**
+ * @brief Imprime as jogadas possíveis para a cor atual.
+ * 
+ * Exibe as coordenadas das jogadas possíveis calculadas por `jogadas_possiveis`.
+ */
 void Reversi::imprime_jogadas_possiveis() {
     try {
         for (int x = 0; x < static_cast<int>(jogadas_possiveis_linha.size()) && 
@@ -287,6 +378,11 @@ void Reversi::imprime_jogadas_possiveis() {
     }
 }
 
+/**
+ * @brief Marca as jogadas possíveis no tabuleiro.
+ * 
+ * Substitui as células vazias correspondentes a jogadas possíveis pelo caractere '*' no tabuleiro.
+ */
 void Reversi::marca_as_jogadas_possiveis_no_tabuleiro() {
     try {
         for (int x = 0; x < static_cast<int>(jogadas_possiveis_linha.size()) && 
@@ -298,6 +394,11 @@ void Reversi::marca_as_jogadas_possiveis_no_tabuleiro() {
     }
 }
 
+/**
+ * @brief Desmarca as jogadas possíveis do tabuleiro.
+ * 
+ * Restaura as células marcadas com '*' para vazias (' ') no tabuleiro.
+ */
 void Reversi::desmarca_as_jogadas_possiveis_do_tabuleiro() {
     try {
         for (int x = 0; x < static_cast<int>(jogadas_possiveis_linha.size()) && 
@@ -309,6 +410,16 @@ void Reversi::desmarca_as_jogadas_possiveis_do_tabuleiro() {
     }
 }
 
+/**
+ * @brief Inverte as cores das peças capturadas na vertical.
+ * 
+ * Muda as cores das peças da coluna especificada entre as linhas da jogada e a primeira peça da mesma cor que foi encontrada.
+ * 
+ * @param linha Linha da jogada.
+ * @param coluna Coluna da jogada.
+ * @param cor_jogando Cor do jogador que fez a jogada ('B' ou 'W').
+ * @return O estado atual do tabuleiro após a inversão.
+ */
 vector<vector<char>> Reversi::inversao_da_cor_vertical(int linha, int coluna, char cor_jogando) {
     try {
         int x;
@@ -351,6 +462,16 @@ vector<vector<char>> Reversi::inversao_da_cor_vertical(int linha, int coluna, ch
     return tabuleiro;
 }
 
+/**
+ * @brief Inverte as cores das peças capturadas na horizontal.
+ * 
+ * Muda as cores das peças da linha especificada entre as colunas da jogada e a primeira peça da mesma cor que foi encontrada.
+ * 
+ * @param linha Linha da jogada.
+ * @param coluna Coluna da jogada.
+ * @param cor_jogando Cor do jogador que fez a jogada ('B' ou 'W').
+ * @return O estado atual do tabuleiro após a inversão.
+ */
 vector<vector<char>> Reversi::inversao_da_cor_horizontal(int linha, int coluna, char cor_jogando) {
     try {
         int y;
@@ -393,6 +514,16 @@ vector<vector<char>> Reversi::inversao_da_cor_horizontal(int linha, int coluna, 
     return tabuleiro;
 }
 
+/**
+ * @brief Inverte as cores das peças capturadas nas diagonais.
+ * 
+ * Muda as cores das peças nas diagonais especificadas entre as posições da jogada e a primeira peça da mesma cor que foi encontrada.
+ * 
+ * @param linha Linha da jogada.
+ * @param coluna Coluna da jogada.
+ * @param cor_jogando Cor do jogador que fez a jogada ('B' ou 'W').
+ * @return O estado atual do tabuleiro após a inversão.
+ */
 vector<vector<char>> Reversi::inversao_da_cor_diagonal(int linha, int coluna, char cor_jogando) {
     try {
         int x, y;
@@ -467,6 +598,13 @@ vector<vector<char>> Reversi::inversao_da_cor_diagonal(int linha, int coluna, ch
     return tabuleiro;
 }
 
+/**
+ * @brief Verifica o vencedor do jogo.
+ * 
+ * Compara o número de peças de cada cor no tabuleiro e determina o vencedor.
+ * 
+ * @return 'W' se as peças brancas vencerem, 'B' se as peças pretas vencerem, ou 'D' se houver empate.
+ */
 char Reversi::verificar_vitoria() {
     try {
         int cont_b = 0;
@@ -502,6 +640,11 @@ char Reversi::verificar_vitoria() {
     }
 }
 
+/**
+ * @brief Controla o fluxo principal do jogo, alternando entre os jogadores até que haja um vencedor ou o tabuleiro esteja cheio.
+ * 
+ * @return A cor do jogador vencedor ('B' ou 'W') ou 'D' em caso de empate.
+ */
 char Reversi::jogar() {
     try {
         system("cls");
