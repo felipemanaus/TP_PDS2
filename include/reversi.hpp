@@ -9,19 +9,21 @@
 #include "./jogo.hpp"
 #include "./jogador.hpp"
 
+using namespace std; 
+
 /**
  * @class Reversi
  * @brief Implementa o jogo Reversi, onde dois jogadores competem para capturar o maior número de peças no tabuleiro.
  */
 class Reversi : public jogo {
     private:
-        std::vector<std::vector<char>> tabuleiro; ///< Tabuleiro do jogo Reversi representado como uma matriz de caracteres.
+        vector<vector<char>> tabuleiro; ///< Tabuleiro do jogo Reversi representado como uma matriz de caracteres.
         char cor_inicial;                         ///< Cor inicial do jogador que faz a primeira jogada.
-        std::vector<int> jogadas_possiveis_linha; ///< Vetor que armazena as linhas das jogadas possíveis.
-        std::vector<int> jogadas_possiveis_coluna;///< Vetor que armazena as colunas das jogadas possíveis.
+        vector<int> jogadas_possiveis_linha; ///< Vetor que armazena as linhas das jogadas possíveis.
+        vector<int> jogadas_possiveis_coluna;///< Vetor que armazena as colunas das jogadas possíveis.
 
     public:
-        std::vector<jogador> jogadores;           ///< Vetor que armazena os jogadores participantes.
+        vector<jogador> jogadores;           ///< Vetor que armazena os jogadores participantes.
 
         /**
          * @brief Construtor padrão do jogo Reversi.
@@ -115,7 +117,7 @@ class Reversi : public jogo {
          * @param cor Cor do jogador.
          * @return Novo estado do tabuleiro após a inversão.
          */
-        std::vector<std::vector<char>> inversao_da_cor_vertical(int linha, int coluna, char cor);
+        vector<vector<char>> inversao_da_cor_vertical(int linha, int coluna, char cor);
 
         /**
          * @brief Inverte as peças na horizontal para uma jogada específica.
@@ -124,7 +126,7 @@ class Reversi : public jogo {
          * @param cor Cor do jogador.
          * @return Novo estado do tabuleiro após a inversão.
          */
-        std::vector<std::vector<char>> inversao_da_cor_horizontal(int linha, int coluna, char cor);
+        vector<vector<char>> inversao_da_cor_horizontal(int linha, int coluna, char cor);
 
         /**
          * @brief Inverte as peças nas diagonais para uma jogada específica.
@@ -133,7 +135,7 @@ class Reversi : public jogo {
          * @param cor Cor do jogador.
          * @return Novo estado do tabuleiro após a inversão.
          */
-        std::vector<std::vector<char>> inversao_da_cor_diagonal(int linha, int coluna, char cor);
+        vector<vector<char>> inversao_da_cor_diagonal(int linha, int coluna, char cor);
 
         /**
          * @brief Verifica se há um vencedor com base no estado atual do tabuleiro.

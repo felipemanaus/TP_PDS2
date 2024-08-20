@@ -19,7 +19,7 @@ using namespace std;
  */
 class cadastro {
     private:
-        std::vector<jogador> jogadores; ///< Vetor que armazena os jogadores cadastrados.
+        vector<jogador> jogadores; ///< Vetor que armazena os jogadores cadastrados.
 
     public:
         /**

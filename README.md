@@ -34,7 +34,9 @@ Dificuldades Encontradas
 
     Persistência de Dados: Manter a sincronização dos dados dos jogadores com o arquivo dados.txt e assegurar que todas as alterações fossem corretamente salvas e carregadas foi uma tarefa complexa.
 
-Funcionalidades Extras
-    Tratamento Robusto de Erros: Implementação extensiva de blocos try-catch para garantir que erros fossem reportados e tratados adequadamente durante a execução do programa.
+    O grupo enfrentou várias dificuldades ao longo da realização do trabalho. Inicialmente, demoramos a entender como funcionavam os sistemas do git e do github, já que nunca havíamos utilizado-os. Além disso, enfrentamos dificuldades ao tentar bibliotecas e ferramentas diferentes como o doxygen e o doctest. Outro fator que dificultou a realização do trabalho foi o fato de alguns dos integrantes viajarem no periodo no qual estavam marcadas as ferias no início do ano, dificultando a realização conjunta durante alguns dias. 
 
-    Interface de Texto para Jogos: Uma interface de texto foi implementada para os jogos de Lig4 e Reversi, permitindo uma interação mais fluida e direta com o usuário, melhorando a experiência de jogo.
+
+Considerações finais:
+    Todos cremos que o trabalho acrescentou muito na nossa formação, pois foi o primeiro projeto de maior porte de todos os integrantes do grupo. O trabalho precisou de uma organização maior, tanto na questão de planejamento quanto nos próprios arquivos de código, que utilizaram das classes e suas ferramentas. A organização para trabalhar em gupo também foi enriquecedora no geral. 
+   

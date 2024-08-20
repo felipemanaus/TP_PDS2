@@ -10,13 +10,14 @@
 #include "./jogador.hpp"
 #include <utility>
 
+using namespace std;
 /**
  * @class Lig4
  * @brief Implementa o jogo Lig4, uma variação do jogo de tabuleiro onde dois jogadores competem para alinhar quatro peças.
  */
 class Lig4 : public jogo {
     public:
-        std::pair<jogador, jogador> jogadores; ///< Par de jogadores que estão jogando.
+        pair<jogador, jogador> jogadores; ///< Par de jogadores que estão jogando.
 
         /**
          * @brief Construtor para inicializar o jogo com dois jogadores.
