@@ -1,0 +1,61 @@
+\doxysection{reversi.\+hpp}
+\hypertarget{reversi_8hpp_source}{}\label{reversi_8hpp_source}\index{include/reversi.hpp@{include/reversi.hpp}}
+\mbox{\hyperlink{reversi_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ REVERSI\_HPP}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ REVERSI\_HPP}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{jogo_8hpp}{./jogo.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{jogador_8hpp}{./jogador.hpp}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_reversi}{Reversi}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classjogo}{jogo}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::vector<std::vector<char>>\ tabuleiro;\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ cor\_inicial;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::vector<int>\ jogadas\_possiveis\_linha;\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ std::vector<int>\ jogadas\_possiveis\_coluna;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ std::vector<jogador>\ \mbox{\hyperlink{class_reversi_ada704f76fae16bc20529bd9c98f1cc60}{jogadores}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_reversi_a73e3ca5c21b634f9c490b404d62f0e01}{Reversi}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_ac8a3ed02a6629bd2998e41f86a5027c5}{imprimir\_tabuleiro}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a9759982a93aab001a0fdd8b4940757a2}{verificar\_tabuleiro\_cheio}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_reversi_a7c6b3b24f1d6ae7ed1e0a00a82d4d7b6}{encontrar\_complemento\_da\_cor}}(\textcolor{keywordtype}{char}\ cor);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_a176f9763e26c8a4439e9f77c24025e5e}{contagem\_pontos}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a06dd44bb92ad8f292d48ce938ad21f5e}{confere\_vertical}}(\textcolor{keywordtype}{int}\ linha,\ \textcolor{keywordtype}{int}\ coluna,\ \textcolor{keywordtype}{char}\ cor);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_aa623e00b761f3b151bf72947fdcb8291}{confere\_horizontal}}(\textcolor{keywordtype}{int}\ linha,\ \textcolor{keywordtype}{int}\ coluna,\ \textcolor{keywordtype}{char}\ cor);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_a4a0221e849bc4aaf4bfc940fb4b9a146}{confere\_diagonal}}(\textcolor{keywordtype}{int}\ linha,\ \textcolor{keywordtype}{int}\ coluna,\ \textcolor{keywordtype}{char}\ cor);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reversi_aab7f278c6df3bd36be864886933d4456}{e\_valido}}(\textcolor{keywordtype}{int}\ linha,\ \textcolor{keywordtype}{int}\ coluna,\ \textcolor{keywordtype}{char}\ cor);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_a3a3e797e2d91afce4f655a329c3c03e9}{jogadas\_possiveis}}(\textcolor{keywordtype}{char}\ cor);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_a4353fd1fb1554ce654efee61b37ee76f}{imprime\_jogadas\_possiveis}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_ad98138bc532bf0b2857cfcbac0e1eb24}{marca\_as\_jogadas\_possiveis\_no\_tabuleiro}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reversi_a8f8d2d2585671a9a7c1ca388cf99a4c5}{desmarca\_as\_jogadas\_possiveis\_do\_tabuleiro}}();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ std::vector<std::vector<char>>\ \mbox{\hyperlink{class_reversi_a55f0b7449eee855d98bf970e5fc7896f}{inversao\_da\_cor\_vertical}}(\textcolor{keywordtype}{int}\ linha,\ \textcolor{keywordtype}{int}\ coluna,\ \textcolor{keywordtype}{char}\ cor);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ std::vector<std::vector<char>>\ \mbox{\hyperlink{class_reversi_aa287939be700b68a827ebc3af9dcdee1}{inversao\_da\_cor\_horizontal}}(\textcolor{keywordtype}{int}\ linha,\ \textcolor{keywordtype}{int}\ coluna,\ \textcolor{keywordtype}{char}\ cor);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ std::vector<std::vector<char>>\ \mbox{\hyperlink{class_reversi_abda9527904598bc9fd836c5e932dc9e0}{inversao\_da\_cor\_diagonal}}(\textcolor{keywordtype}{int}\ linha,\ \textcolor{keywordtype}{int}\ coluna,\ \textcolor{keywordtype}{char}\ cor);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_reversi_abaa1dc375b9351a8fb1872f204f67a13}{verificar\_vitoria}}();}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_reversi_a2cc862569f3d6df8765566fe9db5dd35}{jogar}}();}
+\DoxyCodeLine{00149\ \};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

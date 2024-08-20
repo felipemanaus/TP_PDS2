@@ -1,0 +1,147 @@
+\doxysection{jogo Class Reference}
+\hypertarget{classjogo}{}\label{classjogo}\index{jogo@{jogo}}
+
+
+Classe base abstrata que representa um jogo genérico com um tabuleiro.  
+
+
+
+
+{\ttfamily \#include $<$jogo.\+hpp$>$}
+
+Inheritance diagram for jogo\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classjogo}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classjogo_a28d436b0b2272ab5c6e3008ab5242704}{jogo}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe jogo. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classjogo_a34606004ca00038865fe5948df12d88e}{\texorpdfstring{$\sim$}{\string~}jogo}} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutor virtual padrão. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classjogo_a72c7a48f0398027a3d2568f660ca9ab3}{imprimir\+\_\+tabuleiro}} ()=0
+\begin{DoxyCompactList}\small\item\em Imprime o tabuleiro do jogo. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classjogo_a6994bdb19e5782fab827a005ce452e6e}{verificar\+\_\+tabuleiro\+\_\+cheio}} ()=0
+\begin{DoxyCompactList}\small\item\em Verifica se o tabuleiro está cheio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classjogo_ae293ea924c09b56eb33a1fb4ab923792}{linhas}}
+\begin{DoxyCompactList}\small\item\em Número de linhas do tabuleiro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classjogo_a0025b62f331353f7fde1d78d6a3ec677}{colunas}}
+\begin{DoxyCompactList}\small\item\em Número de colunas do tabuleiro. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{classjogo_a6995638bbf64b17db9bbe9361dfaf804}{tabuleiro}}
+\begin{DoxyCompactList}\small\item\em Representação do tabuleiro como uma matriz bidimensional. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe base abstrata que representa um jogo genérico com um tabuleiro. 
+
+Esta classe fornece a estrutura básica para um jogo que envolve um tabuleiro, com métodos para imprimir o tabuleiro e verificar se ele está cheio. Classes derivadas devem implementar os métodos virtuais. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classjogo_a28d436b0b2272ab5c6e3008ab5242704}\index{jogo@{jogo}!jogo@{jogo}}
+\index{jogo@{jogo}!jogo@{jogo}}
+\doxysubsubsection{\texorpdfstring{jogo()}{jogo()}}
+{\footnotesize\ttfamily \label{classjogo_a28d436b0b2272ab5c6e3008ab5242704} 
+jogo\+::jogo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construtor padrão da classe jogo. 
+
+Construtor da classe {\ttfamily jogo}.
+
+Inicializa um tabuleiro com 8x8 posições, preenchido com zeros. Lança uma exceção caso a alocação do tabuleiro falhe.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & Se a alocação do tabuleiro falhar. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classjogo_a34606004ca00038865fe5948df12d88e}\index{jogo@{jogo}!````~jogo@{\texorpdfstring{$\sim$}{\string~}jogo}}
+\index{````~jogo@{\texorpdfstring{$\sim$}{\string~}jogo}!jogo@{jogo}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}jogo()}{\string~jogo()}}
+{\footnotesize\ttfamily \label{classjogo_a34606004ca00038865fe5948df12d88e} 
+virtual jogo\+::\texorpdfstring{$\sim$}{\string~}jogo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+Destrutor virtual padrão. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classjogo_a72c7a48f0398027a3d2568f660ca9ab3}\index{jogo@{jogo}!imprimir\_tabuleiro@{imprimir\_tabuleiro}}
+\index{imprimir\_tabuleiro@{imprimir\_tabuleiro}!jogo@{jogo}}
+\doxysubsubsection{\texorpdfstring{imprimir\_tabuleiro()}{imprimir\_tabuleiro()}}
+{\footnotesize\ttfamily \label{classjogo_a72c7a48f0398027a3d2568f660ca9ab3} 
+virtual void jogo\+::imprimir\+\_\+tabuleiro (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Imprime o tabuleiro do jogo. 
+
+Este método é puramente virtual e deve ser implementado pelas classes derivadas. 
+
+Implemented in \mbox{\hyperlink{class_lig4_a1473a9760946707604dfbccf7f5b6306}{Lig4}}, and \mbox{\hyperlink{class_reversi_ac8a3ed02a6629bd2998e41f86a5027c5}{Reversi}}.
+
+\Hypertarget{classjogo_a6994bdb19e5782fab827a005ce452e6e}\index{jogo@{jogo}!verificar\_tabuleiro\_cheio@{verificar\_tabuleiro\_cheio}}
+\index{verificar\_tabuleiro\_cheio@{verificar\_tabuleiro\_cheio}!jogo@{jogo}}
+\doxysubsubsection{\texorpdfstring{verificar\_tabuleiro\_cheio()}{verificar\_tabuleiro\_cheio()}}
+{\footnotesize\ttfamily \label{classjogo_a6994bdb19e5782fab827a005ce452e6e} 
+virtual bool jogo\+::verificar\+\_\+tabuleiro\+\_\+cheio (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Verifica se o tabuleiro está cheio. 
+
+Este método é puramente virtual e deve ser implementado pelas classes derivadas. \begin{DoxyReturn}{Returns}
+true se o tabuleiro estiver cheio, false caso contrário. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_lig4_af0cfc242514d3485737e0e97ab9fc9ce}{Lig4}}, and \mbox{\hyperlink{class_reversi_a9759982a93aab001a0fdd8b4940757a2}{Reversi}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classjogo_a0025b62f331353f7fde1d78d6a3ec677}\index{jogo@{jogo}!colunas@{colunas}}
+\index{colunas@{colunas}!jogo@{jogo}}
+\doxysubsubsection{\texorpdfstring{colunas}{colunas}}
+{\footnotesize\ttfamily \label{classjogo_a0025b62f331353f7fde1d78d6a3ec677} 
+int jogo\+::colunas\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Número de colunas do tabuleiro. 
+
+\Hypertarget{classjogo_ae293ea924c09b56eb33a1fb4ab923792}\index{jogo@{jogo}!linhas@{linhas}}
+\index{linhas@{linhas}!jogo@{jogo}}
+\doxysubsubsection{\texorpdfstring{linhas}{linhas}}
+{\footnotesize\ttfamily \label{classjogo_ae293ea924c09b56eb33a1fb4ab923792} 
+int jogo\+::linhas\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Número de linhas do tabuleiro. 
+
+\Hypertarget{classjogo_a6995638bbf64b17db9bbe9361dfaf804}\index{jogo@{jogo}!tabuleiro@{tabuleiro}}
+\index{tabuleiro@{tabuleiro}!jogo@{jogo}}
+\doxysubsubsection{\texorpdfstring{tabuleiro}{tabuleiro}}
+{\footnotesize\ttfamily \label{classjogo_a6995638bbf64b17db9bbe9361dfaf804} 
+vector$<$vector$<$int$>$ $>$ jogo\+::tabuleiro\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Representação do tabuleiro como uma matriz bidimensional. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{jogo_8hpp}{jogo.\+hpp}}\item 
+source/\mbox{\hyperlink{jogo_8cpp}{jogo.\+cpp}}\end{DoxyCompactItemize}

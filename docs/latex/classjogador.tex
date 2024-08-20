@@ -1,0 +1,199 @@
+\doxysection{jogador Class Reference}
+\hypertarget{classjogador}{}\label{classjogador}\index{jogador@{jogador}}
+
+
+Representa um jogador, armazenando seu nome, apelido e o número de vitórias e derrotas em diferentes jogos.  
+
+
+
+
+{\ttfamily \#include $<$jogador.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classjogador_ae61752054bc04b03433a4778b8f8638a}{jogador}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe jogador. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classjogador_ac8ab91e163474be7ae63bb519ad1bdbd}{jogador}} (string \mbox{\hyperlink{classjogador_ab929c1c9a1f7f6f113d9e3d00c2aff13}{nome}}, string \mbox{\hyperlink{classjogador_ad4ea32194628882c0a4b24022b98d8b9}{apelido}})
+\begin{DoxyCompactList}\small\item\em Construtor que inicializa o jogador com nome e apelido. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjogador_a861bf46d0182539ffd428c15f7d53c5b}{ganhador\+\_\+reversi}} ()
+\begin{DoxyCompactList}\small\item\em Incrementa o número de vitórias no jogo \doxylink{class_reversi}{Reversi}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjogador_a26619aa09a1aa23263f6bae7daa13246}{perdedor\+\_\+reversi}} ()
+\begin{DoxyCompactList}\small\item\em Incrementa o número de derrotas no jogo \doxylink{class_reversi}{Reversi}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjogador_a00d70e063428ff86a2c17b18aace29d9}{ganhador\+\_\+lig4}} ()
+\begin{DoxyCompactList}\small\item\em Incrementa o número de vitórias no jogo \doxylink{class_lig4}{Lig4}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classjogador_ab52423921eccc386c516a672a2519221}{perdedor\+\_\+lig4}} ()
+\begin{DoxyCompactList}\small\item\em Incrementa o número de derrotas no jogo \doxylink{class_lig4}{Lig4}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classjogador_ab929c1c9a1f7f6f113d9e3d00c2aff13}{nome}}
+\begin{DoxyCompactList}\small\item\em Nome completo do jogador. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classjogador_ad4ea32194628882c0a4b24022b98d8b9}{apelido}}
+\begin{DoxyCompactList}\small\item\em Apelido do jogador. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classjogador_a4fd703742c1fc2491bd721192c7f817c}{vitorias\+\_\+reversi}}
+\begin{DoxyCompactList}\small\item\em Número de vitórias no jogo \doxylink{class_reversi}{Reversi}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classjogador_a1f69a38d2c305684697610587b124854}{derrotas\+\_\+reversi}}
+\begin{DoxyCompactList}\small\item\em Número de derrotas no jogo \doxylink{class_reversi}{Reversi}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classjogador_a9dcce6e2bfb0e5ace439083fa4905aea}{vitorias\+\_\+lig4}}
+\begin{DoxyCompactList}\small\item\em Número de vitórias no jogo \doxylink{class_lig4}{Lig4}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classjogador_ab9c6230e721d63077d9d0f78a5b2b12d}{derrotas\+\_\+lig4}}
+\begin{DoxyCompactList}\small\item\em Número de derrotas no jogo \doxylink{class_lig4}{Lig4}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa um jogador, armazenando seu nome, apelido e o número de vitórias e derrotas em diferentes jogos. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classjogador_ae61752054bc04b03433a4778b8f8638a}\index{jogador@{jogador}!jogador@{jogador}}
+\index{jogador@{jogador}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{jogador()}{jogador()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classjogador_ae61752054bc04b03433a4778b8f8638a} 
+jogador\+::jogador (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construtor padrão da classe jogador. 
+
+Construtor padrão da classe {\ttfamily jogador}.
+
+Inicializa o jogador com valores padrão. \Hypertarget{classjogador_ac8ab91e163474be7ae63bb519ad1bdbd}\index{jogador@{jogador}!jogador@{jogador}}
+\index{jogador@{jogador}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{jogador()}{jogador()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classjogador_ac8ab91e163474be7ae63bb519ad1bdbd} 
+jogador\+::jogador (\begin{DoxyParamCaption}\item[{string}]{nome}{, }\item[{string}]{apelido}{}\end{DoxyParamCaption})}
+
+
+
+Construtor que inicializa o jogador com nome e apelido. 
+
+Construtor que inicializa o jogador com nome e apelido específicos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & Nome completo do jogador. \\
+\hline
+{\em apelido} & Apelido do jogador.\\
+\hline
+{\em nome} & Nome completo do jogador. \\
+\hline
+{\em apelido} & Apelido do jogador.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Se o nome ou apelido forem vazios. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classjogador_a00d70e063428ff86a2c17b18aace29d9}\index{jogador@{jogador}!ganhador\_lig4@{ganhador\_lig4}}
+\index{ganhador\_lig4@{ganhador\_lig4}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{ganhador\_lig4()}{ganhador\_lig4()}}
+{\footnotesize\ttfamily \label{classjogador_a00d70e063428ff86a2c17b18aace29d9} 
+void jogador\+::ganhador\+\_\+lig4 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Incrementa o número de vitórias no jogo \doxylink{class_lig4}{Lig4}. 
+
+\Hypertarget{classjogador_a861bf46d0182539ffd428c15f7d53c5b}\index{jogador@{jogador}!ganhador\_reversi@{ganhador\_reversi}}
+\index{ganhador\_reversi@{ganhador\_reversi}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{ganhador\_reversi()}{ganhador\_reversi()}}
+{\footnotesize\ttfamily \label{classjogador_a861bf46d0182539ffd428c15f7d53c5b} 
+void jogador\+::ganhador\+\_\+reversi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Incrementa o número de vitórias no jogo \doxylink{class_reversi}{Reversi}. 
+
+\Hypertarget{classjogador_ab52423921eccc386c516a672a2519221}\index{jogador@{jogador}!perdedor\_lig4@{perdedor\_lig4}}
+\index{perdedor\_lig4@{perdedor\_lig4}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{perdedor\_lig4()}{perdedor\_lig4()}}
+{\footnotesize\ttfamily \label{classjogador_ab52423921eccc386c516a672a2519221} 
+void jogador\+::perdedor\+\_\+lig4 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Incrementa o número de derrotas no jogo \doxylink{class_lig4}{Lig4}. 
+
+\Hypertarget{classjogador_a26619aa09a1aa23263f6bae7daa13246}\index{jogador@{jogador}!perdedor\_reversi@{perdedor\_reversi}}
+\index{perdedor\_reversi@{perdedor\_reversi}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{perdedor\_reversi()}{perdedor\_reversi()}}
+{\footnotesize\ttfamily \label{classjogador_a26619aa09a1aa23263f6bae7daa13246} 
+void jogador\+::perdedor\+\_\+reversi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Incrementa o número de derrotas no jogo \doxylink{class_reversi}{Reversi}. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classjogador_ad4ea32194628882c0a4b24022b98d8b9}\index{jogador@{jogador}!apelido@{apelido}}
+\index{apelido@{apelido}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{apelido}{apelido}}
+{\footnotesize\ttfamily \label{classjogador_ad4ea32194628882c0a4b24022b98d8b9} 
+string jogador\+::apelido}
+
+
+
+Apelido do jogador. 
+
+\Hypertarget{classjogador_ab9c6230e721d63077d9d0f78a5b2b12d}\index{jogador@{jogador}!derrotas\_lig4@{derrotas\_lig4}}
+\index{derrotas\_lig4@{derrotas\_lig4}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{derrotas\_lig4}{derrotas\_lig4}}
+{\footnotesize\ttfamily \label{classjogador_ab9c6230e721d63077d9d0f78a5b2b12d} 
+int jogador\+::derrotas\+\_\+lig4}
+
+
+
+Número de derrotas no jogo \doxylink{class_lig4}{Lig4}. 
+
+\Hypertarget{classjogador_a1f69a38d2c305684697610587b124854}\index{jogador@{jogador}!derrotas\_reversi@{derrotas\_reversi}}
+\index{derrotas\_reversi@{derrotas\_reversi}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{derrotas\_reversi}{derrotas\_reversi}}
+{\footnotesize\ttfamily \label{classjogador_a1f69a38d2c305684697610587b124854} 
+int jogador\+::derrotas\+\_\+reversi}
+
+
+
+Número de derrotas no jogo \doxylink{class_reversi}{Reversi}. 
+
+\Hypertarget{classjogador_ab929c1c9a1f7f6f113d9e3d00c2aff13}\index{jogador@{jogador}!nome@{nome}}
+\index{nome@{nome}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{nome}{nome}}
+{\footnotesize\ttfamily \label{classjogador_ab929c1c9a1f7f6f113d9e3d00c2aff13} 
+string jogador\+::nome}
+
+
+
+Nome completo do jogador. 
+
+\Hypertarget{classjogador_a9dcce6e2bfb0e5ace439083fa4905aea}\index{jogador@{jogador}!vitorias\_lig4@{vitorias\_lig4}}
+\index{vitorias\_lig4@{vitorias\_lig4}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{vitorias\_lig4}{vitorias\_lig4}}
+{\footnotesize\ttfamily \label{classjogador_a9dcce6e2bfb0e5ace439083fa4905aea} 
+int jogador\+::vitorias\+\_\+lig4}
+
+
+
+Número de vitórias no jogo \doxylink{class_lig4}{Lig4}. 
+
+\Hypertarget{classjogador_a4fd703742c1fc2491bd721192c7f817c}\index{jogador@{jogador}!vitorias\_reversi@{vitorias\_reversi}}
+\index{vitorias\_reversi@{vitorias\_reversi}!jogador@{jogador}}
+\doxysubsubsection{\texorpdfstring{vitorias\_reversi}{vitorias\_reversi}}
+{\footnotesize\ttfamily \label{classjogador_a4fd703742c1fc2491bd721192c7f817c} 
+int jogador\+::vitorias\+\_\+reversi}
+
+
+
+Número de vitórias no jogo \doxylink{class_reversi}{Reversi}. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{jogador_8hpp}{jogador.\+hpp}}\item 
+source/\mbox{\hyperlink{jogador_8cpp}{jogador.\+cpp}}\end{DoxyCompactItemize}

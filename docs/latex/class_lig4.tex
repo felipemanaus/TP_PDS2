@@ -1,0 +1,200 @@
+\doxysection{Lig4 Class Reference}
+\hypertarget{class_lig4}{}\label{class_lig4}\index{Lig4@{Lig4}}
+
+
+Implementa o jogo \doxylink{class_lig4}{Lig4}, uma variação do jogo de tabuleiro onde dois jogadores competem para alinhar quatro peças.  
+
+
+
+
+{\ttfamily \#include $<$lig4.\+hpp$>$}
+
+Inheritance diagram for Lig4\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_lig4}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lig4_a59d66bf87a9e90de631a9d95a4836f87}{Lig4}} (\mbox{\hyperlink{classjogador}{jogador}} jogador1, \mbox{\hyperlink{classjogador}{jogador}} jogador2)
+\begin{DoxyCompactList}\small\item\em Construtor para inicializar o jogo com dois jogadores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_lig4_a1473a9760946707604dfbccf7f5b6306}{imprimir\+\_\+tabuleiro}} () override
+\begin{DoxyCompactList}\small\item\em Imprime o tabuleiro do jogo \doxylink{class_lig4}{Lig4}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_lig4_a7574525794216da84cf2dec5c978f475}{jogada\+\_\+valida}} (int coluna)
+\begin{DoxyCompactList}\small\item\em Verifica se uma jogada é válida. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_lig4_af0cfc242514d3485737e0e97ab9fc9ce}{verificar\+\_\+tabuleiro\+\_\+cheio}} () override
+\begin{DoxyCompactList}\small\item\em Verifica se o tabuleiro está cheio. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_lig4_a5507df3e2810d0cfdade837836136d63}{jogar}} ()
+\begin{DoxyCompactList}\small\item\em Executa uma jogada no jogo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classjogo}{jogo}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classjogo_a28d436b0b2272ab5c6e3008ab5242704}{jogo}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe jogo. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classjogo_a34606004ca00038865fe5948df12d88e}{\texorpdfstring{$\sim$}{\string~}jogo}} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutor virtual padrão. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ \mbox{\hyperlink{classjogador}{jogador}}, \mbox{\hyperlink{classjogador}{jogador}} $>$ \mbox{\hyperlink{class_lig4_a525f4b9319f4ae2f6cf52993873e7084}{jogadores}}
+\begin{DoxyCompactList}\small\item\em Par de jogadores que estão jogando. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classjogo}{jogo}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classjogo_ae293ea924c09b56eb33a1fb4ab923792}{linhas}}
+\begin{DoxyCompactList}\small\item\em Número de linhas do tabuleiro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classjogo_a0025b62f331353f7fde1d78d6a3ec677}{colunas}}
+\begin{DoxyCompactList}\small\item\em Número de colunas do tabuleiro. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{classjogo_a6995638bbf64b17db9bbe9361dfaf804}{tabuleiro}}
+\begin{DoxyCompactList}\small\item\em Representação do tabuleiro como uma matriz bidimensional. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementa o jogo \doxylink{class_lig4}{Lig4}, uma variação do jogo de tabuleiro onde dois jogadores competem para alinhar quatro peças. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_lig4_a59d66bf87a9e90de631a9d95a4836f87}\index{Lig4@{Lig4}!Lig4@{Lig4}}
+\index{Lig4@{Lig4}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{Lig4()}{Lig4()}}
+{\footnotesize\ttfamily \label{class_lig4_a59d66bf87a9e90de631a9d95a4836f87} 
+Lig4\+::\+Lig4 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classjogador}{jogador}}}]{p1}{, }\item[{\mbox{\hyperlink{classjogador}{jogador}}}]{p2}{}\end{DoxyParamCaption})}
+
+
+
+Construtor para inicializar o jogo com dois jogadores. 
+
+Construtor da classe {\ttfamily \doxylink{class_lig4}{Lig4}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em jogador1} & Primeiro jogador. \\
+\hline
+{\em jogador2} & Segundo jogador.\\
+\hline
+\end{DoxyParams}
+Inicializa o jogo \doxylink{class_lig4}{Lig4} com dois jogadores.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Primeiro jogador. \\
+\hline
+{\em p2} & Segundo jogador. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_lig4_a1473a9760946707604dfbccf7f5b6306}\index{Lig4@{Lig4}!imprimir\_tabuleiro@{imprimir\_tabuleiro}}
+\index{imprimir\_tabuleiro@{imprimir\_tabuleiro}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{imprimir\_tabuleiro()}{imprimir\_tabuleiro()}}
+{\footnotesize\ttfamily \label{class_lig4_a1473a9760946707604dfbccf7f5b6306} 
+void Lig4\+::imprimir\+\_\+tabuleiro (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime o tabuleiro do jogo \doxylink{class_lig4}{Lig4}. 
+
+Imprime o tabuleiro do jogo \doxylink{class_lig4}{Lig4} na tela.
+
+Exibe o tabuleiro com os índices das colunas e o estado atual de cada célula. 
+
+Implements \mbox{\hyperlink{classjogo_a72c7a48f0398027a3d2568f660ca9ab3}{jogo}}.
+
+\Hypertarget{class_lig4_a7574525794216da84cf2dec5c978f475}\index{Lig4@{Lig4}!jogada\_valida@{jogada\_valida}}
+\index{jogada\_valida@{jogada\_valida}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{jogada\_valida()}{jogada\_valida()}}
+{\footnotesize\ttfamily \label{class_lig4_a7574525794216da84cf2dec5c978f475} 
+bool Lig4\+::jogada\+\_\+valida (\begin{DoxyParamCaption}\item[{int}]{coluna}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se uma jogada é válida. 
+
+Verifica se uma jogada em uma coluna é válida.
+
+
+\begin{DoxyParams}{Parameters}
+{\em coluna} & Coluna onde a jogada está sendo feita. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a jogada for válida, false caso contrário.
+\end{DoxyReturn}
+Uma jogada é considerada válida se a coluna não estiver cheia e estiver dentro dos limites do tabuleiro.
+
+
+\begin{DoxyParams}{Parameters}
+{\em coluna} & Coluna a ser verificada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a jogada for válida, false caso contrário.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & Se a coluna estiver fora dos limites permitidos. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_lig4_a5507df3e2810d0cfdade837836136d63}\index{Lig4@{Lig4}!jogar@{jogar}}
+\index{jogar@{jogar}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{jogar()}{jogar()}}
+{\footnotesize\ttfamily \label{class_lig4_a5507df3e2810d0cfdade837836136d63} 
+int Lig4\+::jogar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Executa uma jogada no jogo. 
+
+Controla o fluxo principal do jogo, alternando entre os jogadores até que haja um vencedor ou o tabuleiro esteja cheio.
+
+\begin{DoxyReturn}{Returns}
+O índice do jogador vencedor ou -\/1 se não houver vencedor.
+
+O índice do jogador vencedor ou 0 em caso de empate. 
+\end{DoxyReturn}
+\Hypertarget{class_lig4_af0cfc242514d3485737e0e97ab9fc9ce}\index{Lig4@{Lig4}!verificar\_tabuleiro\_cheio@{verificar\_tabuleiro\_cheio}}
+\index{verificar\_tabuleiro\_cheio@{verificar\_tabuleiro\_cheio}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{verificar\_tabuleiro\_cheio()}{verificar\_tabuleiro\_cheio()}}
+{\footnotesize\ttfamily \label{class_lig4_af0cfc242514d3485737e0e97ab9fc9ce} 
+bool Lig4\+::verificar\+\_\+tabuleiro\+\_\+cheio (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifica se o tabuleiro está cheio. 
+
+Verifica se o tabuleiro está completamente preenchido.
+
+\begin{DoxyReturn}{Returns}
+true se o tabuleiro estiver cheio, false caso contrário.
+\end{DoxyReturn}
+Itera por todas as posições do tabuleiro para determinar se não há mais espaços vazios.
+
+\begin{DoxyReturn}{Returns}
+true se o tabuleiro estiver cheio, false caso contrário. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classjogo_a6994bdb19e5782fab827a005ce452e6e}{jogo}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_lig4_a525f4b9319f4ae2f6cf52993873e7084}\index{Lig4@{Lig4}!jogadores@{jogadores}}
+\index{jogadores@{jogadores}!Lig4@{Lig4}}
+\doxysubsubsection{\texorpdfstring{jogadores}{jogadores}}
+{\footnotesize\ttfamily \label{class_lig4_a525f4b9319f4ae2f6cf52993873e7084} 
+std\+::pair$<$\mbox{\hyperlink{classjogador}{jogador}}, \mbox{\hyperlink{classjogador}{jogador}}$>$ Lig4\+::jogadores}
+
+
+
+Par de jogadores que estão jogando. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{lig4_8hpp}{lig4.\+hpp}}\item 
+source/\mbox{\hyperlink{lig4_8cpp}{lig4.\+cpp}}\end{DoxyCompactItemize}

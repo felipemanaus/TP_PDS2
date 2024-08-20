@@ -1,0 +1,559 @@
+\doxysection{Reversi Class Reference}
+\hypertarget{class_reversi}{}\label{class_reversi}\index{Reversi@{Reversi}}
+
+
+Implementa o jogo \doxylink{class_reversi}{Reversi}, onde dois jogadores competem para capturar o maior número de peças no tabuleiro.  
+
+
+
+
+{\ttfamily \#include $<$reversi.\+hpp$>$}
+
+Inheritance diagram for Reversi\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_reversi}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_reversi_a73e3ca5c21b634f9c490b404d62f0e01}{Reversi}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão do jogo \doxylink{class_reversi}{Reversi}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_reversi_ac8a3ed02a6629bd2998e41f86a5027c5}{imprimir\+\_\+tabuleiro}} () override
+\begin{DoxyCompactList}\small\item\em Imprime o tabuleiro do jogo \doxylink{class_reversi}{Reversi}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_reversi_a9759982a93aab001a0fdd8b4940757a2}{verificar\+\_\+tabuleiro\+\_\+cheio}} () override
+\begin{DoxyCompactList}\small\item\em Verifica se o tabuleiro está cheio. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_reversi_a7c6b3b24f1d6ae7ed1e0a00a82d4d7b6}{encontrar\+\_\+complemento\+\_\+da\+\_\+cor}} (char cor)
+\begin{DoxyCompactList}\small\item\em Encontra a cor oposta à cor fornecida. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_reversi_a176f9763e26c8a4439e9f77c24025e5e}{contagem\+\_\+pontos}} ()
+\begin{DoxyCompactList}\small\item\em Conta os pontos de cada jogador com base no tabuleiro atual. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_reversi_a06dd44bb92ad8f292d48ce938ad21f5e}{confere\+\_\+vertical}} (int linha, int coluna, char cor)
+\begin{DoxyCompactList}\small\item\em Verifica se há capturas possíveis na vertical. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_reversi_aa623e00b761f3b151bf72947fdcb8291}{confere\+\_\+horizontal}} (int linha, int coluna, char cor)
+\begin{DoxyCompactList}\small\item\em Verifica se há capturas possíveis na horizontal. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_reversi_a4a0221e849bc4aaf4bfc940fb4b9a146}{confere\+\_\+diagonal}} (int linha, int coluna, char cor)
+\begin{DoxyCompactList}\small\item\em Verifica se há capturas possíveis nas diagonais. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_reversi_aab7f278c6df3bd36be864886933d4456}{e\+\_\+valido}} (int linha, int coluna, char cor)
+\begin{DoxyCompactList}\small\item\em Verifica se uma jogada é válida. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_reversi_a3a3e797e2d91afce4f655a329c3c03e9}{jogadas\+\_\+possiveis}} (char cor)
+\begin{DoxyCompactList}\small\item\em Calcula e armazena as jogadas possíveis para uma cor específica. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_reversi_a4353fd1fb1554ce654efee61b37ee76f}{imprime\+\_\+jogadas\+\_\+possiveis}} ()
+\begin{DoxyCompactList}\small\item\em Imprime as jogadas possíveis no tabuleiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_reversi_ad98138bc532bf0b2857cfcbac0e1eb24}{marca\+\_\+as\+\_\+jogadas\+\_\+possiveis\+\_\+no\+\_\+tabuleiro}} ()
+\begin{DoxyCompactList}\small\item\em Marca as jogadas possíveis no tabuleiro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_reversi_a8f8d2d2585671a9a7c1ca388cf99a4c5}{desmarca\+\_\+as\+\_\+jogadas\+\_\+possiveis\+\_\+do\+\_\+tabuleiro}} ()
+\begin{DoxyCompactList}\small\item\em Desmarca as jogadas possíveis do tabuleiro. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ \mbox{\hyperlink{class_reversi_a55f0b7449eee855d98bf970e5fc7896f}{inversao\+\_\+da\+\_\+cor\+\_\+vertical}} (int linha, int coluna, char cor)
+\begin{DoxyCompactList}\small\item\em Inverte as peças na vertical para uma jogada específica. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ \mbox{\hyperlink{class_reversi_aa287939be700b68a827ebc3af9dcdee1}{inversao\+\_\+da\+\_\+cor\+\_\+horizontal}} (int linha, int coluna, char cor)
+\begin{DoxyCompactList}\small\item\em Inverte as peças na horizontal para uma jogada específica. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ \mbox{\hyperlink{class_reversi_abda9527904598bc9fd836c5e932dc9e0}{inversao\+\_\+da\+\_\+cor\+\_\+diagonal}} (int linha, int coluna, char cor)
+\begin{DoxyCompactList}\small\item\em Inverte as peças nas diagonais para uma jogada específica. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_reversi_abaa1dc375b9351a8fb1872f204f67a13}{verificar\+\_\+vitoria}} ()
+\begin{DoxyCompactList}\small\item\em Verifica se há um vencedor com base no estado atual do tabuleiro. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_reversi_a2cc862569f3d6df8765566fe9db5dd35}{jogar}} ()
+\begin{DoxyCompactList}\small\item\em Executa o jogo até o final, alternando entre os jogadores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classjogo}{jogo}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classjogo_a28d436b0b2272ab5c6e3008ab5242704}{jogo}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe jogo. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classjogo_a34606004ca00038865fe5948df12d88e}{\texorpdfstring{$\sim$}{\string~}jogo}} ()=default
+\begin{DoxyCompactList}\small\item\em Destrutor virtual padrão. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classjogador}{jogador}} $>$ \mbox{\hyperlink{class_reversi_ada704f76fae16bc20529bd9c98f1cc60}{jogadores}}
+\begin{DoxyCompactList}\small\item\em Vetor que armazena os jogadores participantes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classjogo}{jogo}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classjogo_ae293ea924c09b56eb33a1fb4ab923792}{linhas}}
+\begin{DoxyCompactList}\small\item\em Número de linhas do tabuleiro. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classjogo_a0025b62f331353f7fde1d78d6a3ec677}{colunas}}
+\begin{DoxyCompactList}\small\item\em Número de colunas do tabuleiro. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{classjogo_a6995638bbf64b17db9bbe9361dfaf804}{tabuleiro}}
+\begin{DoxyCompactList}\small\item\em Representação do tabuleiro como uma matriz bidimensional. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementa o jogo \doxylink{class_reversi}{Reversi}, onde dois jogadores competem para capturar o maior número de peças no tabuleiro. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_reversi_a73e3ca5c21b634f9c490b404d62f0e01}\index{Reversi@{Reversi}!Reversi@{Reversi}}
+\index{Reversi@{Reversi}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{Reversi()}{Reversi()}}
+{\footnotesize\ttfamily \label{class_reversi_a73e3ca5c21b634f9c490b404d62f0e01} 
+Reversi\+::\+Reversi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construtor padrão do jogo \doxylink{class_reversi}{Reversi}. 
+
+Construtor da classe {\ttfamily \doxylink{class_reversi}{Reversi}}.
+
+Inicializa o tabuleiro de jogo com as peças iniciais na configuração padrão do \doxylink{class_reversi}{Reversi}.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & Se houver falha na inicialização do tabuleiro. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_reversi_a4a0221e849bc4aaf4bfc940fb4b9a146}\index{Reversi@{Reversi}!confere\_diagonal@{confere\_diagonal}}
+\index{confere\_diagonal@{confere\_diagonal}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{confere\_diagonal()}{confere\_diagonal()}}
+{\footnotesize\ttfamily \label{class_reversi_a4a0221e849bc4aaf4bfc940fb4b9a146} 
+bool Reversi\+::confere\+\_\+diagonal (\begin{DoxyParamCaption}\item[{int}]{linha}{, }\item[{int}]{coluna}{, }\item[{char}]{cor\+\_\+jogando}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se há capturas possíveis nas diagonais. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor} & Cor do jogador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se houver capturas, false caso contrário.
+\end{DoxyReturn}
+Verifica se a jogada em uma determinada posição do tabuleiro resultaria em capturas de peças nas diagonais.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor\+\_\+jogando} & Cor do jogador que está fazendo a jogada (\textquotesingle{}B\textquotesingle{} ou \textquotesingle{}W\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se houver capturas possíveis nas diagonais, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_reversi_aa623e00b761f3b151bf72947fdcb8291}\index{Reversi@{Reversi}!confere\_horizontal@{confere\_horizontal}}
+\index{confere\_horizontal@{confere\_horizontal}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{confere\_horizontal()}{confere\_horizontal()}}
+{\footnotesize\ttfamily \label{class_reversi_aa623e00b761f3b151bf72947fdcb8291} 
+bool Reversi\+::confere\+\_\+horizontal (\begin{DoxyParamCaption}\item[{int}]{linha}{, }\item[{int}]{coluna}{, }\item[{char}]{cor\+\_\+jogando}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se há capturas possíveis na horizontal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor} & Cor do jogador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se houver capturas, false caso contrário.
+\end{DoxyReturn}
+Verifica se a jogada em uma determinada posição do tabuleiro resultaria em capturas de peças na horizontal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor\+\_\+jogando} & Cor do jogador que está fazendo a jogada (\textquotesingle{}B\textquotesingle{} ou \textquotesingle{}W\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se houver capturas possíveis na horizontal, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_reversi_a06dd44bb92ad8f292d48ce938ad21f5e}\index{Reversi@{Reversi}!confere\_vertical@{confere\_vertical}}
+\index{confere\_vertical@{confere\_vertical}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{confere\_vertical()}{confere\_vertical()}}
+{\footnotesize\ttfamily \label{class_reversi_a06dd44bb92ad8f292d48ce938ad21f5e} 
+bool Reversi\+::confere\+\_\+vertical (\begin{DoxyParamCaption}\item[{int}]{linha}{, }\item[{int}]{coluna}{, }\item[{char}]{cor\+\_\+jogando}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se há capturas possíveis na vertical. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor} & Cor do jogador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se houver capturas, false caso contrário.
+\end{DoxyReturn}
+Verifica se a jogada em uma determinada posição do tabuleiro resultaria em capturas de peças na vertical.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor\+\_\+jogando} & Cor do jogador que está fazendo a jogada (\textquotesingle{}B\textquotesingle{} ou \textquotesingle{}W\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se houver capturas possíveis na vertical, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_reversi_a176f9763e26c8a4439e9f77c24025e5e}\index{Reversi@{Reversi}!contagem\_pontos@{contagem\_pontos}}
+\index{contagem\_pontos@{contagem\_pontos}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{contagem\_pontos()}{contagem\_pontos()}}
+{\footnotesize\ttfamily \label{class_reversi_a176f9763e26c8a4439e9f77c24025e5e} 
+void Reversi\+::contagem\+\_\+pontos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Conta os pontos de cada jogador com base no tabuleiro atual. 
+
+Conta e exibe o número de pontos de cada cor no tabuleiro.
+
+Percorre o tabuleiro e conta o número de peças de cada cor (\textquotesingle{}B\textquotesingle{} e \textquotesingle{}W\textquotesingle{}), exibindo o resultado. \Hypertarget{class_reversi_a8f8d2d2585671a9a7c1ca388cf99a4c5}\index{Reversi@{Reversi}!desmarca\_as\_jogadas\_possiveis\_do\_tabuleiro@{desmarca\_as\_jogadas\_possiveis\_do\_tabuleiro}}
+\index{desmarca\_as\_jogadas\_possiveis\_do\_tabuleiro@{desmarca\_as\_jogadas\_possiveis\_do\_tabuleiro}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{desmarca\_as\_jogadas\_possiveis\_do\_tabuleiro()}{desmarca\_as\_jogadas\_possiveis\_do\_tabuleiro()}}
+{\footnotesize\ttfamily \label{class_reversi_a8f8d2d2585671a9a7c1ca388cf99a4c5} 
+void Reversi\+::desmarca\+\_\+as\+\_\+jogadas\+\_\+possiveis\+\_\+do\+\_\+tabuleiro (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Desmarca as jogadas possíveis do tabuleiro. 
+
+Restaura as células marcadas com \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} para vazias (\textquotesingle{} \textquotesingle{}) no tabuleiro. \Hypertarget{class_reversi_aab7f278c6df3bd36be864886933d4456}\index{Reversi@{Reversi}!e\_valido@{e\_valido}}
+\index{e\_valido@{e\_valido}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{e\_valido()}{e\_valido()}}
+{\footnotesize\ttfamily \label{class_reversi_aab7f278c6df3bd36be864886933d4456} 
+bool Reversi\+::e\+\_\+valido (\begin{DoxyParamCaption}\item[{int}]{linha}{, }\item[{int}]{coluna}{, }\item[{char}]{cor\+\_\+jogando}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se uma jogada é válida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor} & Cor do jogador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a jogada for válida, false caso contrário.
+\end{DoxyReturn}
+Combina as verificações vertical, horizontal e diagonal para determinar se a jogada resultaria em capturas de peças.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor\+\_\+jogando} & Cor do jogador que está fazendo a jogada (\textquotesingle{}B\textquotesingle{} ou \textquotesingle{}W\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a jogada for válida, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_reversi_a7c6b3b24f1d6ae7ed1e0a00a82d4d7b6}\index{Reversi@{Reversi}!encontrar\_complemento\_da\_cor@{encontrar\_complemento\_da\_cor}}
+\index{encontrar\_complemento\_da\_cor@{encontrar\_complemento\_da\_cor}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{encontrar\_complemento\_da\_cor()}{encontrar\_complemento\_da\_cor()}}
+{\footnotesize\ttfamily \label{class_reversi_a7c6b3b24f1d6ae7ed1e0a00a82d4d7b6} 
+char Reversi\+::encontrar\+\_\+complemento\+\_\+da\+\_\+cor (\begin{DoxyParamCaption}\item[{char}]{cor\+\_\+jogando}{}\end{DoxyParamCaption})}
+
+
+
+Encontra a cor oposta à cor fornecida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cor} & Cor atual. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A cor complementar.
+\end{DoxyReturn}
+Retorna a cor oposta (\textquotesingle{}B\textquotesingle{} para \textquotesingle{}W\textquotesingle{} e vice-\/versa).
+
+
+\begin{DoxyParams}{Parameters}
+{\em cor\+\_\+jogando} & Cor atual do jogador (\textquotesingle{}B\textquotesingle{} ou \textquotesingle{}W\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A cor complementar.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Se a cor fornecida for inválida. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_reversi_a4353fd1fb1554ce654efee61b37ee76f}\index{Reversi@{Reversi}!imprime\_jogadas\_possiveis@{imprime\_jogadas\_possiveis}}
+\index{imprime\_jogadas\_possiveis@{imprime\_jogadas\_possiveis}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{imprime\_jogadas\_possiveis()}{imprime\_jogadas\_possiveis()}}
+{\footnotesize\ttfamily \label{class_reversi_a4353fd1fb1554ce654efee61b37ee76f} 
+void Reversi\+::imprime\+\_\+jogadas\+\_\+possiveis (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Imprime as jogadas possíveis no tabuleiro. 
+
+Imprime as jogadas possíveis para a cor atual.
+
+Exibe as coordenadas das jogadas possíveis calculadas por {\ttfamily jogadas\+\_\+possiveis}. \Hypertarget{class_reversi_ac8a3ed02a6629bd2998e41f86a5027c5}\index{Reversi@{Reversi}!imprimir\_tabuleiro@{imprimir\_tabuleiro}}
+\index{imprimir\_tabuleiro@{imprimir\_tabuleiro}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{imprimir\_tabuleiro()}{imprimir\_tabuleiro()}}
+{\footnotesize\ttfamily \label{class_reversi_ac8a3ed02a6629bd2998e41f86a5027c5} 
+void Reversi\+::imprimir\+\_\+tabuleiro (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime o tabuleiro do jogo \doxylink{class_reversi}{Reversi}. 
+
+Exibe o tabuleiro na tela, mostrando a posição atual de todas as peças. 
+
+Implements \mbox{\hyperlink{classjogo_a72c7a48f0398027a3d2568f660ca9ab3}{jogo}}.
+
+\Hypertarget{class_reversi_abda9527904598bc9fd836c5e932dc9e0}\index{Reversi@{Reversi}!inversao\_da\_cor\_diagonal@{inversao\_da\_cor\_diagonal}}
+\index{inversao\_da\_cor\_diagonal@{inversao\_da\_cor\_diagonal}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{inversao\_da\_cor\_diagonal()}{inversao\_da\_cor\_diagonal()}}
+{\footnotesize\ttfamily \label{class_reversi_abda9527904598bc9fd836c5e932dc9e0} 
+vector$<$ vector$<$ char $>$ $>$ Reversi\+::inversao\+\_\+da\+\_\+cor\+\_\+diagonal (\begin{DoxyParamCaption}\item[{int}]{linha}{, }\item[{int}]{coluna}{, }\item[{char}]{cor\+\_\+jogando}{}\end{DoxyParamCaption})}
+
+
+
+Inverte as peças nas diagonais para uma jogada específica. 
+
+Inverte as cores das peças capturadas nas diagonais.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor} & Cor do jogador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Novo estado do tabuleiro após a inversão.
+\end{DoxyReturn}
+Muda as cores das peças nas diagonais especificadas entre as posições da jogada e a primeira peça da mesma cor que foi encontrada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor\+\_\+jogando} & Cor do jogador que fez a jogada (\textquotesingle{}B\textquotesingle{} ou \textquotesingle{}W\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O estado atual do tabuleiro após a inversão. 
+\end{DoxyReturn}
+\Hypertarget{class_reversi_aa287939be700b68a827ebc3af9dcdee1}\index{Reversi@{Reversi}!inversao\_da\_cor\_horizontal@{inversao\_da\_cor\_horizontal}}
+\index{inversao\_da\_cor\_horizontal@{inversao\_da\_cor\_horizontal}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{inversao\_da\_cor\_horizontal()}{inversao\_da\_cor\_horizontal()}}
+{\footnotesize\ttfamily \label{class_reversi_aa287939be700b68a827ebc3af9dcdee1} 
+vector$<$ vector$<$ char $>$ $>$ Reversi\+::inversao\+\_\+da\+\_\+cor\+\_\+horizontal (\begin{DoxyParamCaption}\item[{int}]{linha}{, }\item[{int}]{coluna}{, }\item[{char}]{cor\+\_\+jogando}{}\end{DoxyParamCaption})}
+
+
+
+Inverte as peças na horizontal para uma jogada específica. 
+
+Inverte as cores das peças capturadas na horizontal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor} & Cor do jogador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Novo estado do tabuleiro após a inversão.
+\end{DoxyReturn}
+Muda as cores das peças da linha especificada entre as colunas da jogada e a primeira peça da mesma cor que foi encontrada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor\+\_\+jogando} & Cor do jogador que fez a jogada (\textquotesingle{}B\textquotesingle{} ou \textquotesingle{}W\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O estado atual do tabuleiro após a inversão. 
+\end{DoxyReturn}
+\Hypertarget{class_reversi_a55f0b7449eee855d98bf970e5fc7896f}\index{Reversi@{Reversi}!inversao\_da\_cor\_vertical@{inversao\_da\_cor\_vertical}}
+\index{inversao\_da\_cor\_vertical@{inversao\_da\_cor\_vertical}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{inversao\_da\_cor\_vertical()}{inversao\_da\_cor\_vertical()}}
+{\footnotesize\ttfamily \label{class_reversi_a55f0b7449eee855d98bf970e5fc7896f} 
+vector$<$ vector$<$ char $>$ $>$ Reversi\+::inversao\+\_\+da\+\_\+cor\+\_\+vertical (\begin{DoxyParamCaption}\item[{int}]{linha}{, }\item[{int}]{coluna}{, }\item[{char}]{cor\+\_\+jogando}{}\end{DoxyParamCaption})}
+
+
+
+Inverte as peças na vertical para uma jogada específica. 
+
+Inverte as cores das peças capturadas na vertical.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor} & Cor do jogador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Novo estado do tabuleiro após a inversão.
+\end{DoxyReturn}
+Muda as cores das peças da coluna especificada entre as linhas da jogada e a primeira peça da mesma cor que foi encontrada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Linha da jogada. \\
+\hline
+{\em coluna} & Coluna da jogada. \\
+\hline
+{\em cor\+\_\+jogando} & Cor do jogador que fez a jogada (\textquotesingle{}B\textquotesingle{} ou \textquotesingle{}W\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O estado atual do tabuleiro após a inversão. 
+\end{DoxyReturn}
+\Hypertarget{class_reversi_a3a3e797e2d91afce4f655a329c3c03e9}\index{Reversi@{Reversi}!jogadas\_possiveis@{jogadas\_possiveis}}
+\index{jogadas\_possiveis@{jogadas\_possiveis}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{jogadas\_possiveis()}{jogadas\_possiveis()}}
+{\footnotesize\ttfamily \label{class_reversi_a3a3e797e2d91afce4f655a329c3c03e9} 
+void Reversi\+::jogadas\+\_\+possiveis (\begin{DoxyParamCaption}\item[{char}]{cor\+\_\+jogando}{}\end{DoxyParamCaption})}
+
+
+
+Calcula e armazena as jogadas possíveis para uma cor específica. 
+
+Determina as jogadas possíveis para a cor atual.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cor} & Cor do jogador.\\
+\hline
+\end{DoxyParams}
+Preenche os vetores {\ttfamily jogadas\+\_\+possiveis\+\_\+linha} e {\ttfamily jogadas\+\_\+possiveis\+\_\+coluna} com as coordenadas das jogadas válidas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cor\+\_\+jogando} & Cor do jogador para o qual as jogadas possíveis serão calculadas (\textquotesingle{}B\textquotesingle{} ou \textquotesingle{}W\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_reversi_a2cc862569f3d6df8765566fe9db5dd35}\index{Reversi@{Reversi}!jogar@{jogar}}
+\index{jogar@{jogar}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{jogar()}{jogar()}}
+{\footnotesize\ttfamily \label{class_reversi_a2cc862569f3d6df8765566fe9db5dd35} 
+char Reversi\+::jogar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Executa o jogo até o final, alternando entre os jogadores. 
+
+Controla o fluxo principal do jogo, alternando entre os jogadores até que haja um vencedor ou o tabuleiro esteja cheio.
+
+\begin{DoxyReturn}{Returns}
+Cor do jogador vencedor ou vazio se o jogo empatar.
+
+A cor do jogador vencedor (\textquotesingle{}B\textquotesingle{} ou \textquotesingle{}W\textquotesingle{}) ou \textquotesingle{}D\textquotesingle{} em caso de empate. 
+\end{DoxyReturn}
+\Hypertarget{class_reversi_ad98138bc532bf0b2857cfcbac0e1eb24}\index{Reversi@{Reversi}!marca\_as\_jogadas\_possiveis\_no\_tabuleiro@{marca\_as\_jogadas\_possiveis\_no\_tabuleiro}}
+\index{marca\_as\_jogadas\_possiveis\_no\_tabuleiro@{marca\_as\_jogadas\_possiveis\_no\_tabuleiro}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{marca\_as\_jogadas\_possiveis\_no\_tabuleiro()}{marca\_as\_jogadas\_possiveis\_no\_tabuleiro()}}
+{\footnotesize\ttfamily \label{class_reversi_ad98138bc532bf0b2857cfcbac0e1eb24} 
+void Reversi\+::marca\+\_\+as\+\_\+jogadas\+\_\+possiveis\+\_\+no\+\_\+tabuleiro (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Marca as jogadas possíveis no tabuleiro. 
+
+Substitui as células vazias correspondentes a jogadas possíveis pelo caractere \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} no tabuleiro. \Hypertarget{class_reversi_a9759982a93aab001a0fdd8b4940757a2}\index{Reversi@{Reversi}!verificar\_tabuleiro\_cheio@{verificar\_tabuleiro\_cheio}}
+\index{verificar\_tabuleiro\_cheio@{verificar\_tabuleiro\_cheio}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{verificar\_tabuleiro\_cheio()}{verificar\_tabuleiro\_cheio()}}
+{\footnotesize\ttfamily \label{class_reversi_a9759982a93aab001a0fdd8b4940757a2} 
+bool Reversi\+::verificar\+\_\+tabuleiro\+\_\+cheio (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Verifica se o tabuleiro está cheio. 
+
+Verifica se o tabuleiro está completamente cheio.
+
+\begin{DoxyReturn}{Returns}
+true se o tabuleiro estiver cheio, false caso contrário.
+\end{DoxyReturn}
+Percorre todas as posições do tabuleiro para determinar se ainda há espaços vazios.
+
+\begin{DoxyReturn}{Returns}
+true se o tabuleiro estiver cheio, false caso contrário. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classjogo_a6994bdb19e5782fab827a005ce452e6e}{jogo}}.
+
+\Hypertarget{class_reversi_abaa1dc375b9351a8fb1872f204f67a13}\index{Reversi@{Reversi}!verificar\_vitoria@{verificar\_vitoria}}
+\index{verificar\_vitoria@{verificar\_vitoria}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{verificar\_vitoria()}{verificar\_vitoria()}}
+{\footnotesize\ttfamily \label{class_reversi_abaa1dc375b9351a8fb1872f204f67a13} 
+char Reversi\+::verificar\+\_\+vitoria (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Verifica se há um vencedor com base no estado atual do tabuleiro. 
+
+Verifica o vencedor do jogo.
+
+\begin{DoxyReturn}{Returns}
+Cor do jogador vencedor, ou vazio se não houver vencedor.
+\end{DoxyReturn}
+Compara o número de peças de cada cor no tabuleiro e determina o vencedor.
+
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}W\textquotesingle{} se as peças brancas vencerem, \textquotesingle{}B\textquotesingle{} se as peças pretas vencerem, ou \textquotesingle{}D\textquotesingle{} se houver empate. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_reversi_ada704f76fae16bc20529bd9c98f1cc60}\index{Reversi@{Reversi}!jogadores@{jogadores}}
+\index{jogadores@{jogadores}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{jogadores}{jogadores}}
+{\footnotesize\ttfamily \label{class_reversi_ada704f76fae16bc20529bd9c98f1cc60} 
+std\+::vector$<$\mbox{\hyperlink{classjogador}{jogador}}$>$ Reversi\+::jogadores}
+
+
+
+Vetor que armazena os jogadores participantes. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{reversi_8hpp}{reversi.\+hpp}}\item 
+source/\mbox{\hyperlink{reversi_8cpp}{reversi.\+cpp}}\end{DoxyCompactItemize}

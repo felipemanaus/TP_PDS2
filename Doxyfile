@@ -74,7 +74,7 @@ PROJECT_ICON           =
 # entered, it will be relative to the location where Doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = C:\TP PDS2 GitHub\TP_PDS2-2/docs
+OUTPUT_DIRECTORY       = C:\Users\Leo\Documents\TP_PDS2\docs
 
 # If the CREATE_SUBDIRS tag is set to YES then Doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -965,8 +965,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = C:/TP PDS2 GitHub/TP_PDS2-2/include C:/TP PDS2 GitHub/TP_PDS2-2/source
-
+INPUT                  = C:\Users\Leo\Documents\TP_PDS2\include C:\Users\Leo\Documents\TP_PDS2\source
 
 # This tag can be used to specify the character encoding of the source files
 # that Doxygen parses. Internally Doxygen uses the UTF-8 encoding. Doxygen uses

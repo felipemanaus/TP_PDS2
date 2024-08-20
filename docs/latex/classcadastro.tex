@@ -1,0 +1,161 @@
+\doxysection{cadastro Class Reference}
+\hypertarget{classcadastro}{}\label{classcadastro}\index{cadastro@{cadastro}}
+
+
+Gerencia o cadastro de jogadores, permitindo adicionar, remover, listar e salvar os dados.  
+
+
+
+
+{\ttfamily \#include $<$cadastro.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcadastro_aaa6bd259427a7b4f070a7378220137d9}{cadastro}} ()
+\begin{DoxyCompactList}\small\item\em Construtor padrão da classe cadastro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcadastro_a9494d5f4732095ed1262dd8930ac636d}{cadastrar\+\_\+jogador}} (string apelido, string nome)
+\begin{DoxyCompactList}\small\item\em Cadastra um novo jogador. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcadastro_a7936d45c1ffdc0ba8e25493b390b3e4d}{remover\+\_\+jogador}} (string apelido)
+\begin{DoxyCompactList}\small\item\em Remove um jogador do cadastro. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcadastro_a3195785b3f7b67357784bf5fa8cf8389}{listar\+\_\+jogadores}} ()
+\begin{DoxyCompactList}\small\item\em Lista todos os jogadores cadastrados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcadastro_a2181c4568cbc8e691464191e29b4892d}{salvar\+\_\+dados}} ()
+\begin{DoxyCompactList}\small\item\em Salva os dados dos jogadores em um arquivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classcadastro_affacbcbfb0bb4cdcdde909251fcc4e1f}{carregar\+\_\+dados}} ()
+\begin{DoxyCompactList}\small\item\em Carrega os dados dos jogadores de um arquivo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classjogador}{jogador}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classcadastro_a7e184eafab75f6ac82049981d56589f7}{procurar\+\_\+apelido}} (string apelido)
+\begin{DoxyCompactList}\small\item\em Procura por um jogador pelo apelido. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gerencia o cadastro de jogadores, permitindo adicionar, remover, listar e salvar os dados. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classcadastro_aaa6bd259427a7b4f070a7378220137d9}\index{cadastro@{cadastro}!cadastro@{cadastro}}
+\index{cadastro@{cadastro}!cadastro@{cadastro}}
+\doxysubsubsection{\texorpdfstring{cadastro()}{cadastro()}}
+{\footnotesize\ttfamily \label{classcadastro_aaa6bd259427a7b4f070a7378220137d9} 
+cadastro\+::cadastro (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construtor padrão da classe cadastro. 
+
+Construtor da classe {\ttfamily cadastro}.
+
+Tenta carregar os dados do arquivo ao instanciar a classe. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcadastro_a9494d5f4732095ed1262dd8930ac636d}\index{cadastro@{cadastro}!cadastrar\_jogador@{cadastrar\_jogador}}
+\index{cadastrar\_jogador@{cadastrar\_jogador}!cadastro@{cadastro}}
+\doxysubsubsection{\texorpdfstring{cadastrar\_jogador()}{cadastrar\_jogador()}}
+{\footnotesize\ttfamily \label{classcadastro_a9494d5f4732095ed1262dd8930ac636d} 
+void cadastro\+::cadastrar\+\_\+jogador (\begin{DoxyParamCaption}\item[{string}]{apelido}{, }\item[{string}]{nome}{}\end{DoxyParamCaption})}
+
+
+
+Cadastra um novo jogador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em apelido} & Apelido do jogador. \\
+\hline
+{\em nome} & Nome completo do jogador.\\
+\hline
+\end{DoxyParams}
+Verifica se o apelido já existe, adiciona o jogador ao vetor e salva os dados.
+
+
+\begin{DoxyParams}{Parameters}
+{\em apelido} & Apelido do jogador. \\
+\hline
+{\em nome} & Nome completo do jogador. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcadastro_affacbcbfb0bb4cdcdde909251fcc4e1f}\index{cadastro@{cadastro}!carregar\_dados@{carregar\_dados}}
+\index{carregar\_dados@{carregar\_dados}!cadastro@{cadastro}}
+\doxysubsubsection{\texorpdfstring{carregar\_dados()}{carregar\_dados()}}
+{\footnotesize\ttfamily \label{classcadastro_affacbcbfb0bb4cdcdde909251fcc4e1f} 
+void cadastro\+::carregar\+\_\+dados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Carrega os dados dos jogadores de um arquivo. 
+
+Lê os dados de um arquivo de texto e os carrega no vetor de jogadores. \Hypertarget{classcadastro_a3195785b3f7b67357784bf5fa8cf8389}\index{cadastro@{cadastro}!listar\_jogadores@{listar\_jogadores}}
+\index{listar\_jogadores@{listar\_jogadores}!cadastro@{cadastro}}
+\doxysubsubsection{\texorpdfstring{listar\_jogadores()}{listar\_jogadores()}}
+{\footnotesize\ttfamily \label{classcadastro_a3195785b3f7b67357784bf5fa8cf8389} 
+void cadastro\+::listar\+\_\+jogadores (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Lista todos os jogadores cadastrados. 
+
+Exibe o apelido, nome e o número de vitórias e derrotas em \doxylink{class_reversi}{Reversi} e \doxylink{class_lig4}{Lig4} para cada jogador. \Hypertarget{classcadastro_a7e184eafab75f6ac82049981d56589f7}\index{cadastro@{cadastro}!procurar\_apelido@{procurar\_apelido}}
+\index{procurar\_apelido@{procurar\_apelido}!cadastro@{cadastro}}
+\doxysubsubsection{\texorpdfstring{procurar\_apelido()}{procurar\_apelido()}}
+{\footnotesize\ttfamily \label{classcadastro_a7e184eafab75f6ac82049981d56589f7} 
+\mbox{\hyperlink{classjogador}{jogador}} \texorpdfstring{$\ast$}{*} cadastro\+::procurar\+\_\+apelido (\begin{DoxyParamCaption}\item[{string}]{apelido}{}\end{DoxyParamCaption})}
+
+
+
+Procura por um jogador pelo apelido. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em apelido} & Apelido do jogador a ser procurado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o jogador encontrado, ou nullptr se não encontrado.
+\end{DoxyReturn}
+Retorna um ponteiro para o jogador encontrado ou nullptr se não encontrado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em apelido} & Apelido do jogador a ser procurado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o jogador ou nullptr se não encontrado. 
+\end{DoxyReturn}
+\Hypertarget{classcadastro_a7936d45c1ffdc0ba8e25493b390b3e4d}\index{cadastro@{cadastro}!remover\_jogador@{remover\_jogador}}
+\index{remover\_jogador@{remover\_jogador}!cadastro@{cadastro}}
+\doxysubsubsection{\texorpdfstring{remover\_jogador()}{remover\_jogador()}}
+{\footnotesize\ttfamily \label{classcadastro_a7936d45c1ffdc0ba8e25493b390b3e4d} 
+void cadastro\+::remover\+\_\+jogador (\begin{DoxyParamCaption}\item[{string}]{apelido}{}\end{DoxyParamCaption})}
+
+
+
+Remove um jogador do cadastro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em apelido} & Apelido do jogador a ser removido.\\
+\hline
+\end{DoxyParams}
+Procura pelo apelido e remove o jogador correspondente. Salva os dados atualizados.
+
+
+\begin{DoxyParams}{Parameters}
+{\em apelido} & Apelido do jogador a ser removido. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classcadastro_a2181c4568cbc8e691464191e29b4892d}\index{cadastro@{cadastro}!salvar\_dados@{salvar\_dados}}
+\index{salvar\_dados@{salvar\_dados}!cadastro@{cadastro}}
+\doxysubsubsection{\texorpdfstring{salvar\_dados()}{salvar\_dados()}}
+{\footnotesize\ttfamily \label{classcadastro_a2181c4568cbc8e691464191e29b4892d} 
+void cadastro\+::salvar\+\_\+dados (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Salva os dados dos jogadores em um arquivo. 
+
+Salva os dados de todos os jogadores cadastrados em um arquivo de texto. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{cadastro_8hpp}{cadastro.\+hpp}}\item 
+source/\mbox{\hyperlink{cadastro_8cpp}{cadastro.\+cpp}}\end{DoxyCompactItemize}
